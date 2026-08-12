@@ -152,19 +152,38 @@
 
         <div class="grid-item fade-in-up">
           <div class="meta-col">
-            <span class="meta-time">2026.06 — 至今</span>
+            <span class="meta-time">2025.11 — 至今</span>
             <span class="meta-role">研究生课题</span>
           </div>
           <div class="content-col">
             <div class="content-header">
-              <h3>面向锂电池正极材料的科学知识抽取与合成路径建模</h3>
+              <h3>面向锂电池正极材料的科学知识抽取与 Scientific LLM 可靠性评估</h3>
             </div>
             <div class="content-subtitle cuhk-text">香港中文大学 (深圳) &nbsp;|&nbsp; 导师：张明建、李舜宁教授</div>
             <div class="content-details">
               <ul>
-                <li><strong>文献语料与Agent流程：</strong>基于 Web of Science 多组检索式构建 <strong>16,000+篇</strong> 正极材料文献候选池；设计 Multi-Agent 判读与 Adjudication 机制，由 Gemini 2.5 Flash 并行执行多视角判别，Gemini 2.5 Pro 复核疑难样本。</li>
-                <li><strong>阶段性成果与质量控制：</strong>实现最终产物名称及化学式自动判读，在300篇人工核验文献上准确率达 <strong>97.2%</strong>；当前推进合成动作、工艺条件及步骤关系的 Data Labeling，拟引入 Iterative Error Feedback Loop 与 BERT-based Local Audit 降低实体遗漏和标签偏差。</li>
-                <li><strong>方法复现与后续应用：</strong>研读 60+篇 Nature Portfolio 等高水平期刊论文及开源实现，成功复现2项材料信息抽取方法；下一阶段基于结构化数据构建持续文献摄取与领域RAG，探索合成路径推荐及材料性能预测。</li>
+                <li><strong>【Multi-Agent科学数据质检】</strong>面向16,000+篇锂电正极候选文献，受模型对抗辩论机制启发，独立设计4-Agent多视角相关性判读流程，从正/反判据与证据审查角度交叉验证，一致结果自动决策、分歧样本升级裁决；NoSure（不确定）样本由48条降至4条（-91.7%），显著降低人工复核工作量。</li>
+                <li><strong>【错误归因与Pipeline重构】</strong>采用Error-driven方式持续迭代至V31，通过随机抽检独立定位References污染、背景材料误识别、非标准化学标签等关键根因；重构LLM + Rule“关键段落定位→上下文筛选→模型判读”流程，使单篇平均输入Token降低72.4%；在400个随机样本上将判读正确率由47.2%提升至98.5%，幻觉率由5.7%降至测试集未观察到幻觉。</li>
+                <li><strong>【科学一致性与可验证Agent】</strong>独立构建化学计量、化学式格式及合成工艺规则校验，对合成动作与多温度过程进行结构化标准化；结合人工随机复核与高性能LLM交叉核对形成“自动判读-科学校验-错误归因-反馈迭代”质量闭环，并面向Evidence-grounded Scientific Agent构建可追溯知识底座，探索检索、专业工具调用与科学一致性验证协同的材料问答框架。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-item fade-in-up">
+          <div class="meta-col">
+            <span class="meta-time">2025.09 — 2026.07</span>
+            <span class="meta-role">核心研究成员</span>
+          </div>
+          <div class="content-col">
+            <div class="content-header">
+              <h3>锂电池离子凝胶电解质优化与负极兼容性研究</h3>
+            </div>
+            <div class="content-subtitle xmu-text">厦门大学马来西亚分校 &nbsp;|&nbsp; 导师：范能平教授</div>
+            <div class="content-details">
+              <ul>
+                <li><strong>【多变量实验与性能表征】</strong>围绕LiTFSI浓度、UV固化时间、VC含量及膜厚开展配方优化，结合EIS、GCD、FTIR、燃烧与机械测试，确定0.75 M / 5 wt% VC / 30 s / 0.2 mm最优组合</li>
+                <li><strong>【负极兼容性验证】</strong>比较Graphite、MCMB、Hard Carbon与Silicon负极循环性能；Graphite第120圈容量231.8 mAh g⁻¹，第100-120圈平均库仑效率99.4%，识别不同负极体系的适配差异；相关成果已进入论文撰写阶段</li>
               </ul>
             </div>
           </div>
@@ -182,29 +201,8 @@
             <div class="content-subtitle xmu-text">厦门大学 &nbsp;|&nbsp; 导师：郑世胜、李剑锋教授</div>
             <div class="content-details">
               <ul>
-                <li><strong>模型复现与基线对比：</strong>独立处理 NASA与CALCE 电池数据，依据论文条件配置并复现 Transformer类预测模型，引入 CNN 作为对照，使用 RMSE、MSE与R² 评价预测表现。</li>
-                <li><strong>综述研究与论文产出：</strong>系统回顾 164篇 文献并深入分析 25篇核心模型，从架构、输入特征、误差指标与泛化局限等维度完成比较；第一作者综述返修稿已提交至 IOP Publishing 旗下期刊《AI for Science》。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 补全的科研经历：离子液体凝胶固态电池研究 -->
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.09 — 2026.07</span>
-            <span class="meta-role">研究员</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>离子液体凝胶固态电池研究</h3>
-            </div>
-            <div class="content-subtitle xmu-text">厦门大学马来西亚分校 &nbsp;|&nbsp; 导师：范能平教授</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>文献调研与方案设计：</strong>系统阅读关于离子液体凝胶固态电池的30余篇文献，掌握固态电解质的合成方法；综合分析不同材料在不同温度下的性能差异（如电导率、电化学稳定窗口等），为实验设计提供参考。</li>
-                <li><strong>材料合成与电池组装：</strong>独立完成实验方案设计与成分筛选，制定合成配方；完成不同比例复合材料的制备，并成功组装纽扣电池。</li>
-                <li><strong>电池测试与数据分析：</strong>开展电池性能测试，重点对比不同温度下的循环表现与衰减率变化，评估不同离子液体凝胶配方的实际电化学表现。</li>
+                <li><strong>【模型复现与可靠性评估】</strong>独立处理NASA与CALCE电池数据，复现Transformer类预测模型并以CNN为基线，使用RMSE、MSE与R²定量评估；进一步分析跨工况泛化、数据泄漏、预测不确定性与模型失效场景。</li>
+                <li><strong>【综述研究与论文产出】</strong>系统回顾164篇文献并深入分析25篇核心研究，从架构、输入特征、泛化能力、不确定性量化与部署约束等维度构建比较框架；第一作者综述返修稿已提交至IOP Publishing旗下期刊《AI for Science》</li>
               </ul>
             </div>
           </div>
@@ -219,12 +217,10 @@
             <div class="content-header">
               <h3>热工参数测量与表面温度动态校正研究</h3>
             </div>
-            <!-- 修改了教授名字，张耀立 -> 张尧立 -->
-            <div class="content-subtitle xmu-text">厦门大学 &nbsp;|&nbsp; 导师：张尧立教授</div>
+            <div class="content-subtitle xmu-text">厦门大学&福建中烟集团 &nbsp;|&nbsp; 导师：张尧立教授</div>
             <div class="content-details">
               <ul>
-                <li><strong>实验与数据分析：</strong>参与稳态热流法接触热阻测量及表面温度探测，搭建 T型热电偶—红外测温联合平台，完成 20+组实验 与 10万+数据点 分析，构建动态校正模型，测温精度提升 <strong>32%</strong>。</li>
-                <li><strong>科研方法与论文：</strong>主导稳态热流法实验框架、测量模型构建及 30+篇 核心文献综述，联合提出2项技术改进提议；相关论文以第二作者身份撰写中，拟投《实验室研究与探索》。</li>
+                <li><strong>【实验-模型验证】</strong>搭建T型热电偶-红外测温联合平台，完成20+组实验与10万+数据点分析，构建动态校正模型使测温精度提升32%；主导实验框架与模型设计，相关论文以第二作者撰写中。</li>
               </ul>
             </div>
           </div>
@@ -243,14 +239,14 @@
           </div>
           <div class="content-col">
             <div class="content-header">
-              <h3>珠海冠宇电源有限公司</h3>
+              <h3>冠宇电源有限公司</h3>
               <img src="https://logo.clearbit.com/cosmx.com" alt="CosMX Logo" class="logo midea-logo" onerror="this.style.display='none'">
             </div>
             <div class="content-subtitle">动力电池研发中心</div>
             <div class="content-details">
               <ul>
-                <li><strong>热仿真建模与验证：</strong>基于 Ansys Fluent 完成动力电池包热失控及电芯/MOS级温度场分析，通过网格敏感性分析与边界条件校准预测热蔓延趋势，仿真与实验误差控制在 <strong>±15%</strong>。</li>
-                <li><strong>跨软件对标：</strong>独立使用 COMSOL 复现同类模型，对比不同工况下温升速率与最终温度；通过全局参数设置与网格优化，部分工况计算效率提升 <strong>16%—32%</strong>，关键温度预测误差降低 <strong>5%—10%</strong>。</li>
+                <li><strong>【模型构建与实验验证】</strong>基于Ansys Fluent开展动力电池热失控及电芯/MOS温度场建模，结合网格敏感性分析、边界条件校准与实验对标，将关键工况仿真误差控制在±15%</li>
+                <li><strong>【跨平台模型复核】</strong>独立使用COMSOL复现同类模型，通过参数与网格优化使部分工况计算效率提升16%-22%、关键温度预测误差降低5%-10%。</li>
               </ul>
             </div>
           </div>
@@ -267,12 +263,11 @@
               <h3>美的集团股份有限公司</h3>
               <img src="https://logo.clearbit.com/midea.com" alt="Midea Logo" class="logo midea-logo" onerror="this.style.display='none'">
             </div>
-            <div class="content-subtitle">楼宇科技-研发中心</div>
+            <div class="content-subtitle">楼宇科技研发中心</div>
             <div class="content-details">
               <ul>
-                <li><strong>产品研发与系统建模：</strong>参与 165 kW热泵 从样机摸底、测试方案迭代至试产验证的全流程开发，协同完成零部件配置、异常工况定位与控制逻辑优化；基于自研平台搭建一维系统模型，并在 <strong>3天内</strong> 完成二维系统图，结合 UG 三维模型核验部件位置与尺寸，支撑试产与量产评审。</li>
-                <li><strong>多工况标定与方案优化：</strong>完成核心部件多工况标定及 20+修正系数 校准，将模型综合误差控制在 <strong>3%以内</strong>；用于零部件选型与方案预评估，仿真结果显示约 <strong>8%节能潜力</strong>，并减少 <strong>50%以上重复测试</strong>。</li>
-                <li><strong>AI Workflow与竞品洞察：</strong>基于内部AI平台搭建工单创建、资料归档与数据分析一体化 Workflow，提升任务流转、数据复用与信息检索效率；围绕温控系统、控制逻辑等关键维度开展自有品牌与 G 品牌 Benchmarking，输出结构化竞品分析报告，支撑产品方案迭代与决策。</li>
+                <li><strong>【AI Workflow与数据决策】</strong>基于内部AI平台搭建工单创建、资料归档与数据分析一体化Workflow，提升任务流转、数据复用与信息检索效率；围绕温控系统与控制逻辑开展Benchmarking，输出结构化竞品分析，支撑产品方案迭代与决策。</li>
+                <li><strong>【系统建模与方案验证】</strong>参与165 kW热泵开发并搭建一维系统模型，完成核心部件多工况标定及20+修正系数校准，将综合误差控制在5%以内；用于零部件选型与方案预评估，仿真显示约8%节能潜力，预计可减少50%以上重复测试。</li>
               </ul>
             </div>
           </div>
@@ -285,54 +280,65 @@
         
         <div class="grid-item fade-in-up">
           <div class="meta-col">
-            <span class="meta-role">编程与AI辅助开发</span>
+            <span class="meta-role">AI / LLM</span>
           </div>
           <div class="content-col">
-            <div class="skills-typographic">
-              <span>Python</span>
-              <span>LLM API (Prompt Eng, Agent Design)</span>
-              <span>Codex</span>
-              <span>Antigravity</span>
+            <div class="content-details">
+              <ul>
+                <li>Python、LLM API、Prompt Engineering、Multi-Agent、Adjudication、Data Labeling；具备测试集构建、Scientific LLM Evaluation、错误归因、Human-in-the-loop质量控制及LLM + Rule流程设计实践。</li>
+              </ul>
             </div>
           </div>
         </div>
 
         <div class="grid-item fade-in-up">
           <div class="meta-col">
-            <span class="meta-role">工程仿真与数据处理</span>
+            <span class="meta-role">科学计算与实验</span>
           </div>
           <div class="content-col">
-            <div class="skills-typographic">
-              <span>Ansys Fluent</span>
-              <span>COMSOL</span>
-              <span>OriginLab</span>
-              <span>Data Labeling</span>
+            <div class="content-details">
+              <ul>
+                <li>熟悉Transformer模型评估，掌握Ansys Fluent、COMSOL、OriginLab及EIS、GCD、FTIR等实验/分析方法，具备材料、电化学与能源工程交叉研究基础。</li>
+              </ul>
             </div>
           </div>
         </div>
         
         <div class="grid-item fade-in-up">
           <div class="meta-col">
-            <span class="meta-role">材料表征与设计制图</span>
+            <span class="meta-role">科研能力</span>
           </div>
           <div class="content-col">
-            <div class="skills-typographic">
-              <span>EIS / GCD / FTIR</span>
-              <span>AutoCAD</span>
-              <span>UG</span>
-              <span>SolidWorks</span>
+            <div class="content-details">
+              <ul>
+                <li>熟悉Web of Science检索、科学文献批处理、结构化信息抽取与英文科研写作，具备跨模型/实验结果复核与科学合理性判断能力。</li>
+              </ul>
             </div>
           </div>
         </div>
 
         <div class="grid-item fade-in-up">
           <div class="meta-col">
-            <span class="meta-role">语言与学术检索</span>
+            <span class="meta-role">语言能力</span>
           </div>
           <div class="content-col">
-            <div class="skills-typographic">
-              <span>Web of Science</span>
-              <span>IELTS 6.5 (L:7, R:7.5, W:6.5, S:6)</span>
+            <div class="content-details">
+              <ul>
+                <li>IELTS 6.5 (L:7, R:7.5, W:6.5, S:6)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-item fade-in-up">
+          <div class="meta-col">
+            <span class="meta-role">自我评价</span>
+          </div>
+          <div class="content-col">
+            <div class="content-details">
+              <ul>
+                <li>具备较强的自主研究与问题拆解能力，习惯从异常样本和科学证据出发开展错误归因（Root Cause Analysis），并通过随机抽检与量化评测验证改进效果；重视模型输出的可验证性、可复现性及边界条件，具备材料/电化学与AI交叉研究背景，能够将领域问题转化为可执行判据与自动化流程，并独立推进复杂科研任务及跨团队协作。</li>
+              </ul>
             </div>
           </div>
         </div>
