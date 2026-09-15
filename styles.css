@@ -623,3 +623,5 @@ footer {
 @media (max-width: 640px) { .media-gallery { grid-template-columns: 1fr; } }
 .media-gallery { justify-content: end; justify-items: end; }
 .media-gallery img { aspect-ratio: 4 / 3; object-fit: cover; }
+/* 展开后统一放大图片，保持清晰并靠右对齐 */
+.media-gallery img { max-height: 420px; aspect-ratio: auto; object-fit: contain; }
