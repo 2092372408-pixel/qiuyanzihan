@@ -631,3 +631,8 @@ footer {
 .media-gallery { display: flex; flex-wrap: nowrap; justify-content: flex-end; align-items: flex-start; gap: 1rem; width: 100%; }
 .media-gallery img { flex: 0 1 calc(50% - .5rem); width: calc(50% - .5rem); max-width: calc(50% - .5rem); max-height: none; height: auto; aspect-ratio: auto; object-fit: contain; }
 @media (max-width: 640px) { .media-gallery { flex-wrap: wrap; } .media-gallery img { flex-basis: 100%; width: 100%; max-width: 100%; } }
+/* 统一经历图片展开样式，与 3D 项目保持一致 */
+.media-details { width: auto; }
+.media-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: end; justify-items: stretch; align-items: start; width: 100%; }
+.media-gallery img { width: 100%; max-width: none; max-height: 420px; height: auto; aspect-ratio: auto; object-fit: contain; }
+@media (max-width: 640px) { .media-gallery { grid-template-columns: 1fr; } }
