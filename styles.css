@@ -625,3 +625,9 @@ footer {
 .media-gallery img { aspect-ratio: 4 / 3; object-fit: cover; }
 /* 展开后统一放大图片，保持清晰并靠右对齐 */
 .media-gallery img { max-height: 420px; aspect-ratio: auto; object-fit: contain; }
+/* 图片展开区域：右侧双列、完整显示原图比例 */
+.media-details { width: 100%; }
+.media-details summary { text-align: right; }
+.media-gallery { display: flex; flex-wrap: nowrap; justify-content: flex-end; align-items: flex-start; gap: 1rem; width: 100%; }
+.media-gallery img { flex: 0 1 calc(50% - .5rem); width: calc(50% - .5rem); max-width: calc(50% - .5rem); max-height: none; height: auto; aspect-ratio: auto; object-fit: contain; }
+@media (max-width: 640px) { .media-gallery { flex-wrap: wrap; } .media-gallery img { flex-basis: 100%; width: 100%; max-width: 100%; } }
