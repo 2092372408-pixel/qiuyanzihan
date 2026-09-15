@@ -18,7 +18,7 @@
     <div class="overlay"></div>
     
     <div class="welcome-content">
-      <img src="images/avatar.jpg" alt="丘严子涵" class="welcome-avatar" onerror="this.style.display='none'">
+      <img src="images/avatar-sharp.jpg" alt="丘严子涵" class="welcome-avatar" onerror="this.style.display='none'">
       <h1>丘严子涵</h1>
       <p class="welcome-tagline">AI for Science / 材料智能</p>
       
@@ -47,7 +47,7 @@
         
         <div class="sidebar-inner">
           <div class="sidebar-profile">
-            <img src="images/avatar.jpg" alt="丘严子涵" class="sidebar-avatar" onerror="this.style.display='none'">
+            <img src="images/avatar-sharp.jpg" alt="丘严子涵" class="sidebar-avatar" onerror="this.style.display='none'">
             <h2>丘严子涵</h2>
             <p>AI for Science</p>
           </div>
@@ -490,7 +490,7 @@
       /* === 4. 防护与反爬虫逻辑 === */
       // 动态拼接联系方式，防止被源码静态扫描
       const p = ['151', '6001', '0090'];
-      const e = ['yanzihanqiu@link.cuhk.edu.cn'];
+      const e = ['yanzihanqiu', '@', 'link.cuhk.edu.cn'];
       document.getElementById('contact-phone').innerText = p.join('');
       const emailEl = document.getElementById('contact-email');
       emailEl.innerText = e.join('');
@@ -522,3 +522,4 @@
   </script>
 </body>
 </html>
+
