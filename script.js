@@ -2,12 +2,12 @@ const navigation = [...document.querySelectorAll('.section-nav a')];
 const sections = navigation.map(link => document.querySelector(link.hash));
 
 function updateNavigation() {
-  let current = sections[0];
+  let current = null;
   for (const section of sections) {
     if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section;
   }
   for (const link of navigation) {
-    if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
+    if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   }
 }
