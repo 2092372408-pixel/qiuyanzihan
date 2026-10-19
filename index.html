@@ -2,545 +2,145 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>丘严子涵 - 个人简历</title>
-  
-  <!-- 防爬虫与隐私保护 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="丘严子涵的个人主页。AI 应用与 Agent 开发，编程学习平台、科研文献抽取，以及 AI for Science 研究。">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-  
+  <meta name="theme-color" content="#f8f9f6">
+  <title>丘严子涵 · AI 应用与 Agent 开发</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body class="locked-scroll">
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .8a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.55v-2.14c-3.21.7-3.89-1.36-3.89-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 12 .8Z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></symbol>
+  </svg>
 
-  <!-- 第一页：全屏 Welcome 界面 (弹窗动画屏) -->
-  <header class="welcome-screen" id="welcome-curtain">
-    <div class="bg-image"></div>
-    <div class="overlay"></div>
-    
-    <div class="welcome-content">
-      <img src="images/avatar-sharp.jpg" alt="丘严子涵" class="welcome-avatar" onerror="this.style.display='none'">
-      <h1>丘严子涵</h1>
-      <p class="welcome-tagline">AI for Science / 材料智能</p>
-      
-      <!-- 个人简介直接放在第一页首页 -->
-      <div class="welcome-intro">
-        <span class="quote-mark">“</span>
-        <p>
-          我专注于 <strong>AI Agent、LLM 应用研发</strong> 与 <strong>AI for Science</strong>，致力于把多智能体系统、科学知识工程与材料/能源研究结合起来。通过可验证的数据生产流程、模型评测和实验协同，我将复杂问题拆解为可复现、可落地的智能工具与研究方法。
-        </p>
+  <div class="site-shell">
+    <header class="profile">
+      <a class="wordmark" href="#about" aria-label="回到个人介绍">QY<span> / PORTFOLIO</span></a>
+      <div class="identity">
+        <img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 500px) 92px, (max-width: 900px) 110px, 136px" width="544" height="680" alt="丘严子涵的个人肖像" fetchpriority="high" decoding="sync">
+        <div><p class="name-en">Yanzihan Qiu</p><h1>丘严子涵<span class="name-dot">.</span></h1><p class="role">AI 应用 / Agent 开发</p></div>
       </div>
-    </div>
-    
-    <div class="scroll-indicator" id="scroll-prompt">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </div>
-  </header>
-
-  <!-- 第二部分：简历主体布局 -->
-  <div class="resume-layout" id="resume-main">
-    
-    <!-- 左侧边栏 -->
-    <aside class="resume-sidebar">
-      <div class="sidebar-sticky">
-        <div class="bg-image sidebar-bg"></div>
-        <div class="sidebar-overlay"></div>
-        
-        <div class="sidebar-inner">
-          <div class="sidebar-profile">
-            <img src="images/avatar-sharp.jpg" alt="丘严子涵" class="sidebar-avatar" onerror="this.style.display='none'">
-            <h2>丘严子涵</h2>
-            <p>AI for Science</p>
-          </div>
-          
-          <nav id="nav-menu">
-            <ul>
-              <li><a href="#education" class="nav-link active">教育经历</a></li>
-              <li><a href="#research" class="nav-link">项目&amp;科研经历</a></li>
-              <li><a href="#internship" class="nav-link">实习经历</a></li>
-              <li><a href="#skills" class="nav-link">专业技能</a></li>
-              <li><a href="#projects" class="nav-link">项目与荣誉</a></li>
-            </ul>
-          </nav>
-          
-          <!-- 极简图标联系方式 (动态渲染防抓取) -->
-          <div class="sidebar-contact">
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <span id="contact-phone">加载中...</span>
-            </div>
-            <div class="contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <a href="#" id="contact-email">加载中...</a>
-            </div>
-          </div>
-        </div>
+      <p class="profile-intro">在真实的学习与科研场景中，<br class="desktop-break">做可用、可验证的 AI 工具。</p>
+      <p class="availability"><span></span>寻找 AI 应用与 Agent 研发实习</p>
+      <nav class="section-nav" aria-label="页面导航">
+        <a href="#work" aria-current="location"><span>01</span>精选项目</a>
+        <a href="#publication"><span>02</span>论文研究</a>
+        <a href="#experience"><span>03</span>教育与经历</a>
+        <a href="#honors"><span>04</span>奖项与荣誉</a>
+        <a href="#more"><span>05</span>更多研究与创作</a>
+      </nav>
+      <div class="profile-links">
+        <a href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        <a href="mailto:yanzihanqiu@link.cuhk.edu.cn"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>邮件联系</a>
       </div>
-    </aside>
+      <p class="profile-location">深圳 · 香港中文大学（深圳）</p>
+      <a class="profile-phone" href="tel:15160010090">151 6001 0090</a>
+    </header>
 
-    <!-- 右侧内容滚动区 -->
-    <main class="resume-content">
-      
-      <!-- 教育经历 -->
-      <section id="education" class="scrollspy-section">
-        <h2 class="section-title">教育经历</h2>
-        
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2026.09 — 2028.07</span>
-            <span class="meta-role">研究型硕士 (MPhil)</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>香港中文大学 (深圳) <span class="tag-badge">QS 18</span></h3>
-              <img src="images/cuhk_logo.png" alt="CUHK Logo" class="logo cuhk-logo" onerror="this.style.display='none'">
-            </div>
-            <div class="content-subtitle cuhk-text">人工智能 | 深圳校区人工智能学院</div>
-            <div class="content-details">
-              <ul>
-                <li>已获正式录取，研究方向聚焦 <strong>AI for Science、科学知识工程与领域模型应用</strong></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2026.03 — 2026.06</span>
-            <span class="meta-role">本科 (交换生)</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>上海交通大学</h3>
-              <span class="tag-badge">985</span><span class="tag-badge">211</span>
-              <img src="images/sjtu_logo.png" alt="SJTU Logo" class="logo sjtu-logo" onerror="this.style.display='none'">
-            </div>
-            <div class="content-subtitle sjtu-text">净零碳燃料 | Low Carbon-UK College</div>
-            <div class="content-details">
-              <ul>
-                <li>作为项目组长，获上海交通大学“Net Zero-Carbon Fuels”课程最佳小组展示奖（Distinction）。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2022.09 — 2026.07</span>
-            <span class="meta-role">本科</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>厦门大学</h3>
-              <span class="tag-badge">985</span><span class="tag-badge">211</span>
-              <img src="images/image2.png" alt="XMU Logo" class="logo xmu-logo" onerror="this.style.display='none'">
-            </div>
-            <div class="content-subtitle xmu-text">新能源科学与工程 | 马来西亚分校能源与化工学院</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>CGPA:</strong> 3.53 / 4.00</li>
-                <li><strong>主修课程:</strong> 微积分（A）、通用物理与实验（A）、有机化学（A）、材料科学基础（A）、AI与仿真（A）、能源化学（A）、增材制造（A）</li>
-                <li><strong>荣誉:</strong> 2022-2023学年三等奖学金（Top 30%）、优秀毕业论文（A等）满绩</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <main id="main">
+      <section id="about" class="intro-section" aria-labelledby="intro-heading">
+        <p class="eyebrow">ENGINEERING × APPLIED AI</p>
+        <h2 id="intro-heading">专注于 AI 应用<br>与 <span>Agent 工程</span></h2>
+        <p class="intro-copy">你好，我是子涵。现就读于香港中文大学（深圳）人工智能研究型硕士，本科毕业于厦门大学。我从编程学习和科研文献处理中的实际问题出发，独立完成需求分析、工作流设计与应用开发。</p>
+        <p class="intro-copy secondary">目前主要在做 EduPilot 编程学习平台，以及层状正极科研文献的文本抽取与组合图处理。关注工具调用、检索、长期记忆，以及模型输出能否被原文证据和实际运行验证。</p>
+        <div class="intro-links"><a class="text-link" href="#work">看看我做的项目 <span aria-hidden="true">↓</span></a><a class="text-link muted" href="mailto:yanzihanqiu@link.cuhk.edu.cn">聊聊实习机会 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
       </section>
 
-      <!-- 项目&科研经历 -->
-      <section id="research" class="scrollspy-section">
-        <h2 class="section-title">项目&amp;科研经历</h2>
+      <section id="work" aria-labelledby="work-heading">
+        <div class="section-heading"><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-heading">精选项目</h2><p>从需求到实现，也关注结果如何验证。</p></div>
+        <article class="project">
+          <div class="project-meta"><span class="project-type">AI APPLICATION / EDUCATION</span><span>2026.03 — 至今</span></div>
+          <div class="project-title"><h3>EduPilot</h3><a class="repository-link" href="https://github.com/2092372408-pixel/EduPilot" target="_blank" rel="noopener noreferrer" aria-label="EduPilot GitHub 私有仓库，需要访问权限"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub · 私有仓库<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+          <p class="project-subtitle">面向编程学习的教学 Agent 平台</p>
+          <p>独立主导需求、Agent 架构与全栈实现，把教材学习、在线 Python 编程、服务端判题与教学反馈串联起来。项目已用于厦门大学信息学院 2 个教学班。</p>
+          <ul class="project-points">
+            <li><strong>可执行的学习过程。</strong>浏览器内编辑、试运行与判题；把题目、代码和错误输出接入 AI 答疑，以核验成绩更新错题与知识点状态。</li>
+            <li><strong>有边界的教学编排。</strong>基于 LangGraph 路由通用、协调、预习、学习、复习五类角色，使用工具白名单控制调用；普通问答与正式检测分离。</li>
+            <li><strong>教材检索与长期记忆。</strong>支持 6 类教材，结合 BM25、向量召回与 RRF 融合；通过信息信号门控和摘要复用减少重复记忆维护。</li>
+          </ul>
+          <p class="result-note"><span>验证记录</span>2026.10 固定 60 轮合成对话维护测试：维护模型调用由 32 次降至 12 次，减少 62.5%。</p>
+          <ul class="tech-list" aria-label="EduPilot 技术栈"><li>LangGraph</li><li>Tool Calling</li><li>RAG</li><li>Node.js</li><li>SQLite</li><li>Python</li></ul>
+          <div class="gallery project-gallery" aria-label="EduPilot 界面截图">
+            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-coding.webp" data-caption="EduPilot · Python 在线编程与服务端判题" aria-label="放大查看 EduPilot 在线编程界面"><img src="images/edupilot-coding.webp" width="1280" height="720" alt="EduPilot 的题目目录、Python 编辑器与运行判分按钮" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>01 / 在线编程与判题</figcaption></figure>
+            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-home.webp" data-caption="EduPilot · 教材与学习工作台" aria-label="放大查看 EduPilot 学习工作台"><img src="images/edupilot-home.webp" width="1280" height="720" alt="EduPilot 的教材学习与教学 Agent 工作台" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>02 / 教材与学习工作台</figcaption></figure>
+          </div>
+        </article>
 
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2026.06 — 2026.09</span>
-            <span class="meta-role">独立主导</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>EduOwl｜多智能体教学与学习状态平台</h3>
-              <span class="tag-badge">可运行 Demo</span><span class="tag-badge">全栈实现</span>
-            </div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【可执行 Agent】</strong>0→1 独立完成需求定义、Agent Architecture 与全栈实现；基于 LangGraph 搭建 Router → 4 类 Specialized Agents → 9 Tools，定义工具职责、输入输出与调用边界；形成代码仓库与可运行 Demo，并在厦门大学信息学院 2 个教学班使用。</li>
-                <li><strong>【Agent 评测】</strong>自建 66 例 / 8 类场景 Agent Evaluation Set，覆盖正常问答、信息缺失、Tool Calling、多轮任务与越权请求；E2E Task Completion 97%、Tool Calling Accuracy 94%，66 例评测中未检出事实性幻觉，越权违规 0 例。</li>
-                <li><strong>【状态与反馈】</strong>支持 6 类教材统一接入，串联"出题→作答→判分→追问讲解→错题推荐"闭环；从多轮交互沉淀 Learner Profile、Knowledge Gaps 与 recurring error patterns，用于后续任务路由、内容推荐与学习进度可视化。</li>
-              </ul>
-            </div>
-            <details class="media-details"><summary>查看项目图片</summary><div class="media-gallery"><img src="images/eduowl.png" alt="EduOwl 教育智能体"></div></details>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.11 — 至今</span>
-            <span class="meta-role">研究生课题</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>面向锂电池正极材料的科学知识抽取与 Scientific LLM 可靠性评估</h3>
-            </div>
-            <div class="content-subtitle cuhk-text">香港中文大学 (深圳) &nbsp;|&nbsp; 导师：张明建、李舜宁教授</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【Multi-Agent科学数据质检】</strong>面向16,000+篇锂电正极候选文献，受模型对抗辩论机制启发，独立设计4-Agent多视角相关性判读流程，从正/反判据与证据审查角度交叉验证，一致结果自动决策、分歧样本升级裁决；NoSure（不确定）样本由48条降至4条（-91.7%），显著降低人工复核工作量。</li>
-                <li><strong>【错误归因与Pipeline重构】</strong>采用Error-driven方式持续迭代至V31，通过随机抽检独立定位References污染、背景材料误识别、非标准化学标签等关键根因；重构LLM + Rule“关键段落定位→上下文筛选→模型判读”流程，使单篇平均输入Token降低72.4%；在400个随机样本上将判读正确率由47.2%提升至98.5%，幻觉率由5.7%降至测试集未观察到幻觉。</li>
-                <li><strong>【科学一致性与可验证Agent】</strong>独立构建化学计量、化学式格式及合成工艺规则校验，对合成动作与多温度过程进行结构化标准化；结合人工随机复核与高性能LLM交叉核对形成“自动判读-科学校验-错误归因-反馈迭代”质量闭环，并面向Evidence-grounded Scientific Agent构建可追溯知识底座，探索检索、专业工具调用与科学一致性验证协同的材料问答框架。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.09 — 2026.07</span>
-            <span class="meta-role">核心研究成员</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>锂电池离子凝胶电解质优化与负极兼容性研究</h3>
-            </div>
-            <div class="content-subtitle xmu-text">厦门大学马来西亚分校 &nbsp;|&nbsp; 导师：范能平教授</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【研究设计与优化】</strong>围绕AAm / DMAAm–TFSI ionogel建立可复现实验体系，系统比较LiTFSI浓度（0.6 / 0.75 / 1.0 M）、UV固化时间（30 / 60 s）、VC添加与厚度（0.5→0.2 mm）对界面与传输性能的影响。</li>
-                <li><strong>【电化学表征】</strong>完成EIS、恒流充放电及CR2032半电池测试流程；30 s固化样品相较60 s获得更低体相电阻（58.1 Ω vs 86.5 Ω），并验证薄化ionogel可进一步降低高频阻抗。</li>
-                <li><strong>【多负极兼容性】</strong>评估Graphite、MCMB、Hard Carbon与Silicon负极适配性；Graphite体系长期循环保持稳定，库仑效率约99.2%–99.4%，并形成优秀毕业论文。</li>
-              </ul>
-            </div>
-            <details class="media-details"><summary>查看实验图片</summary><div class="media-gallery"><img src="images/ionogel-test.jpg" alt="离子凝胶实验装置"><img src="images/ionogel-cycling.jpg" alt="离子凝胶电池循环测试"></div></details>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up"><div class="meta-col"><span class="meta-time">2025.09 — 2026.01</span><span class="meta-role">独立 Maker 项目</span></div><div class="content-col"><div class="content-header"><h3>可定制投影灯｜AI 辅助 3D 设计与打印</h3></div><div class="content-subtitle xmu-text">产品创意 · AI 辅助建模 · 3D 打印原型</div><div class="content-details"><ul><li><strong>【0→1 产品创意】</strong>提出可定制图案投影灯，基于开源结构模板二次设计，将前端改为统一尺寸的可替换图案模块，实现“一套灯体 + 多种投影效果”。</li><li><strong>【建模与实体验证】</strong>结合腾讯混元3D与Shapr3D完成生成建模、结构改模与尺寸适配，使用Bambu Lab X1 Carbon完成打印、装配与投影验证，打通Idea→3D Model→Printing→Assembly→Validation闭环。</li></ul></div><details class="media-details"><summary>查看项目图片</summary><div class="media-gallery"><img src="images/3d-print-setup.jpg" alt="Bambu Lab 3D打印过程"><img src="images/3d-print-lamp.jpg" alt="3D打印投影灯成品"></div></details></div></div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.08 — 至今</span>
-            <span class="meta-role">第一作者</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>Transformer架构在锂电池寿命预测中的应用研究</h3>
-            </div>
-            <div class="content-subtitle xmu-text">厦门大学 &nbsp;|&nbsp; 导师：郑世胜、李剑锋教授</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【模型复现与可靠性评估】</strong>独立处理NASA与CALCE电池数据，复现Transformer类预测模型并以CNN为基线，使用RMSE、MSE与R²定量评估；进一步分析跨工况泛化、数据泄漏、预测不确定性与模型失效场景。</li>
-                <li><strong>【综述研究与论文产出】</strong>系统回顾164篇文献并深入分析25篇核心研究，从架构、输入特征、泛化能力、不确定性量化与部署约束等维度构建比较框架；第一作者综述返修稿已提交至IOP Publishing旗下期刊《AI for Science》。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2024.08 — 至今</span>
-            <span class="meta-role">核心成员 / 第二作者</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>热工参数测量与表面温度动态校正研究</h3>
-            </div>
-            <div class="content-subtitle xmu-text">厦门大学&福建中烟集团 &nbsp;|&nbsp; 导师：张尧立教授</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【实验-模型验证】</strong>搭建T型热电偶-红外测温联合平台，完成20+组实验与10万+数据清洗分析，构建动态校正模型使测温精度提升32%；主导实验框架与模型设计。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <article class="project">
+          <div class="project-meta"><span class="project-type">AI FOR SCIENCE / DATA ENGINEERING</span><span>2026.06 — 至今</span></div>
+          <div class="project-title"><h3>科研文献抽取与组合图处理</h3></div>
+          <p class="project-subtitle">层状正极科学知识抽取 · 独立负责文本与图像处理</p>
+          <p>围绕科研文献中“信息散、流程长、图文难关联”的问题，构建 Python 与 LLM 驱动的结构化抽取流程，保留原文、样本身份和图像来源。</p>
+          <ul class="project-points">
+            <li><strong>从错误样本改进抽取。</strong>通过“先锁定流程、再补齐条件”处理合成步骤遗漏，合成路径提取准确率由 34.2% 提升至 97.5%；400 篇人工复核中，最终产物抽取准确率为 98.5%。</li>
+            <li><strong>让事实与来源对应。</strong>以冻结样本注册表贯通产物、合成、性能与形貌抽取，校验来源及缓存身份；100 篇冻结输入的离线重导出中，370 个样本、912 条事实无身份错配，另隔离 1 个待复核样本。</li>
+            <li><strong>图文数据与组合图拆分。</strong>完成覆盖 2,689 个唯一 DOI、32,614 个可读图片文件的清点与索引；接入候选框检测、人工审核裁图和 PDF 区域补图，在 3 篇真实文献上复现 10 张子图处理。</li>
+          </ul>
+          <div class="evidence-flow" aria-label="文献处理过程"><span>文献与样本</span><span aria-hidden="true">→</span><span>结构化抽取</span><span aria-hidden="true">→</span><span>证据与身份校验</span><span aria-hidden="true">→</span><span>文本 / 子图</span></div>
+          <ul class="tech-list" aria-label="科研文献项目技术"><li>Python</li><li>LLM</li><li>Structured Extraction</li><li>Image Processing</li><li>Evaluation</li></ul>
+          <p class="project-footnote">香港中文大学（深圳） · 导师：张明建、李舜宁教授</p>
+        </article>
       </section>
 
-      <!-- 实习经历 (调整顺序为倒序：冠宇最新，美的较旧) -->
-      <section id="internship" class="scrollspy-section">
-        <h2 class="section-title">实习经历</h2>
-        
-        <!-- 冠宇 (最新) -->
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.08 — 2025.09</span>
-            <span class="meta-role">热仿真工程师</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>冠宇电源有限公司</h3>
-              <img src="https://logo.clearbit.com/cosmx.com" alt="CosMX Logo" class="logo midea-logo" onerror="this.style.display='none'">
-            </div>
-            <div class="content-subtitle">动力电池研发中心</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【热仿真建模与验证】</strong>参与动力电池包热失控仿真，使用Ansys Fluent完成cell / MOS级温度场分析与热蔓延趋势预测，并与实验数据对标，关键温度误差控制在±15%。</li><li><strong>【多软件对标与优化】</strong>独立使用COMSOL搭建同构模型，通过全局参数设置、边界条件校准与Mesh Optimization，使部分工况计算效率提升16%–22%、预测误差降低5%–10%。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 美的 (较旧) -->
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2025.03 — 2025.08</span>
-            <span class="meta-role">性能开发工程师</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>美的集团股份有限公司</h3>
-              <img src="https://logo.clearbit.com/midea.com" alt="Midea Logo" class="logo midea-logo" onerror="this.style.display='none'">
-            </div>
-            <div class="content-subtitle">楼宇科技研发中心</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>【产品开发与跨部门协作】</strong>参与165 kW热泵新机型从摸底、改机、测试方案调整到试产定型的全流程；3天内独立完成新版AutoCAD二维系统图，并结合UG三维模型核对位置与尺寸，准确率100%。</li><li><strong>【系统仿真与模型标定】</strong>使用内部仿真软件完成关键部件多工况标定并调整20+修正系数，综合误差控制在5%以内；搭建AI Workflow覆盖图像识别、工单创建、资料归档与数据分析，累计覆盖110+使用人次。</li><li><strong>【竞品与业务分析】</strong>完成国际头部品牌同定位产品整机拆解与BOM、运行逻辑及Cost Structure分析，形成40页报告并面向40+人汇报。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <section id="publication" aria-labelledby="publication-heading">
+        <div class="section-heading"><p class="eyebrow">02 / RESEARCH & PUBLICATION</p><h2 id="publication-heading">论文研究</h2></div>
+        <article class="publication">
+          <div class="publication-meta"><span class="status">已接收 · 录用稿已上线</span><time datetime="2026-10-12">2026.10.12</time></div>
+          <h3><a href="https://iopscience.iop.org/article/10.1088/3050-287X/aeb31b" target="_blank" rel="noopener noreferrer">Evolution of Transformer Architectures for Lithium-ion Battery State Estimation and Health Prognostics: A Comprehensive Review <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></h3>
+          <p class="publication-authors"><strong>Yanzihan Qiu</strong>, Hang Lin, Hong Ngee Lim, Nay Ming Huang, Shisheng Zheng, Jian-Feng Li</p>
+          <p class="publication-venue">第一作者 · <em>AI for Science</em> · IOP Publishing</p>
+          <p>系统回顾 164 篇文献、深入比较 25 篇核心研究，梳理 Transformer 架构、输入特征、跨工况泛化、评测方法与部署约束。配合 NASA、CALCE 数据处理及 Transformer / CNN 模型对照，使用 RMSE、MSE、R² 评估预测误差。</p>
+          <a class="doi-link" href="https://doi.org/10.1088/3050-287X/aeb31b" target="_blank" rel="noopener noreferrer">DOI: 10.1088/3050-287X/aeb31b <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </article>
       </section>
 
-      <!-- 专业技能 -->
-      <section id="skills" class="scrollspy-section">
-        <h2 class="section-title">专业技能</h2>
-        
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-role">AI / LLM</span>
-          </div>
-          <div class="content-col">
-            <div class="content-details">
-              <ul>
-                <li>Python、LLM API、Prompt Engineering、Multi-Agent、Adjudication、Data Labeling；具备测试集构建、Scientific LLM Evaluation、错误归因、Human-in-the-loop质量控制及LLM + Rule流程设计实践。</li>
-              </ul>
-            </div>
-          </div>
+      <section id="experience" aria-labelledby="experience-heading">
+        <div class="section-heading"><p class="eyebrow">03 / BACKGROUND</p><h2 id="experience-heading">教育与经历</h2></div>
+        <h3 class="subsection-title">教育背景</h3>
+        <div class="timeline">
+          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>预计</span></p><div><h4>香港中文大学（深圳）</h4><p class="timeline-role">人工智能 · 研究型硕士 MPhil · 在读</p><p>人工智能学院 · 关注 AI for Science、科学知识工程与领域模型应用。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><h4>厦门大学</h4><p class="timeline-role">新能源科学与工程 · 工学学士（荣誉）</p><p>马来西亚分校能源与化工学院 · <strong>CGPA 3.53 / 4.00</strong></p><p>材料科学基础、微积分、AI 与仿真等课程 A；学年三等奖学金、院长嘉许名单、毕业设计优秀奖。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2026.03 — 2026.06</p><div><h4>上海交通大学</h4><p class="timeline-role">净零碳燃料课程交换 · Low Carbon-UK College</p><p>担任项目组长，获最佳小组展示奖（Distinction）。</p></div></article>
         </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-role">科学计算与实验</span>
-          </div>
-          <div class="content-col">
-            <div class="content-details">
-              <ul>
-                <li>熟悉Transformer模型评估，掌握Ansys Fluent、COMSOL、OriginLab及EIS、GCD、FTIR等实验/分析方法，具备材料、电化学与能源工程交叉研究基础。</li>
-              </ul>
-            </div>
-          </div>
+        <h3 class="subsection-title">实习经历</h3>
+        <div class="timeline">
+          <article class="timeline-item"><p class="timeline-date">2025.08 — 2025.09</p><div><h4>冠宇电源有限公司</h4><p class="timeline-role">热仿真工程师 · 动力电池研发中心</p><p>独立搭建 COMSOL 动力电池热模型，与 Ansys Fluent 及实验数据对照，误差控制在 ±15%。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2025.03 — 2025.08</p><div><h4>美的集团股份有限公司</h4><p class="timeline-role">性能开发工程师 · 楼宇科技研发中心</p><p>基于内部 AI 平台独立搭建图像识别、信息流转、工单创建与归档分析流程，完成节点编排、字段映射及培训，累计覆盖 110+ 人次。</p><p>开展竞品拆解、核心零部件与成本分析，形成 40 页结构化报告。</p></div></article>
         </div>
-        
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-role">科研能力</span>
-          </div>
-          <div class="content-col">
-            <div class="content-details">
-              <ul>
-                <li>熟悉Web of Science检索、科学文献批处理、结构化信息抽取与英文科研写作，具备跨模型/实验结果复核与科学合理性判断能力。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-role">语言能力</span>
-          </div>
-          <div class="content-col">
-            <div class="content-details">
-              <ul>
-                <li>IELTS 6.5 (L:7, R:7.5, W:6.5, S:6)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-role">自我评价</span>
-          </div>
-          <div class="content-col">
-            <div class="content-details">
-              <ul>
-                <li>具备较强的自主研究与问题拆解能力，习惯从异常样本和科学证据出发开展错误归因（Root Cause Analysis），并通过随机抽检与量化评测验证改进效果；重视模型输出的可验证性、可复现性及边界条件，具备材料/电化学与AI交叉研究背景，能够将领域问题转化为可执行判据与自动化流程，并独立推进复杂科研任务及跨团队协作。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <div class="skills"><h3 class="subsection-title">常用技术与方法</h3><dl><div><dt>开发</dt><dd>Python · JavaScript · Node.js · SQLite</dd></div><div><dt>Agent</dt><dd>LangGraph · Tool Calling · RAG · BM25 / 向量检索 · 长期记忆</dd></div><div><dt>研究</dt><dd>原文证据溯源 · 错误归因 · 对照评估 · Transformer / CNN</dd></div><div><dt>语言</dt><dd>IELTS 6.5</dd></div></dl></div>
       </section>
 
-      <!-- 项目与荣誉 (Vertical Stacking) -->
-      <section id="projects" class="scrollspy-section">
-        <h2 class="section-title">项目与荣誉</h2>
-        
-        <!-- 奖项 1: SJTU (Newest) -->
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2026.07</span>
-            <span class="meta-role">最佳展示奖 (Distinction)</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>最佳课程展示奖</h3>
-            </div>
-            <div class="content-subtitle sjtu-text">上海交通大学 Net Zero-Carbon Fuels</div>
-            <div class="content-details">
-              <ul>
-                <!-- 修改为陈述客观事实 -->
-                <li>作为项目组长参与“Net Zero-Carbon Fuels”课程，并在最终的小组展示中获得最佳成绩（Distinction）。</li>
-              </ul>
-            </div>
-            <img src="images/cert2_new.jpg" alt="SJTU Certificate" class="award-cert-img">
-          </div>
+      <section id="honors" aria-labelledby="honors-heading">
+        <div class="section-heading"><p class="eyebrow">04 / HONORS</p><h2 id="honors-heading">奖项与荣誉</h2><p>学习和研究过程中的几个记录。</p></div>
+        <div class="honors-grid">
+          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-deans-list.webp" data-caption="院长嘉许名单 · Dean’s List · 2026/04 学期" aria-label="放大查看院长嘉许名单证书"><img src="images/award-deans-list.webp" width="1437" height="2048" alt="厦门大学马来西亚分校院长嘉许名单证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>院长嘉许名单</h3><p>Dean’s List<br>厦门大学马来西亚分校</p></article>
+          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-fyp-ii.webp" data-caption="毕业设计优秀奖 · Merit Final Year Project II Award · 2026/04 学期" aria-label="放大查看毕业设计第二阶段优秀奖证书"><img src="images/award-fyp-ii.webp" width="1479" height="2048" alt="厦门大学马来西亚分校毕业设计第二阶段优秀奖证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>毕业设计优秀奖 · II</h3><p>Merit Final Year Project II Award<br>离子凝胶电解质与负极兼容性研究</p></article>
+          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/cert2_new.jpg" data-caption="上海交通大学 · Best Group Presentation Award · Distinction · 2026.03—06 课程" aria-label="放大查看上海交通大学最佳小组展示奖证书"><img src="images/cert2_new.jpg" width="1024" height="722" alt="上海交通大学净零碳燃料课程最佳小组展示奖 Distinction 证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026.03 — 06 课程</p><h3>最佳小组展示奖</h3><p>Distinction · 项目组长<br>上海交通大学 Net Zero-Carbon Fuels</p></article>
         </div>
-
-        <!-- 奖项 2: FYP1 (Older) -->
-        <div class="grid-item fade-in-up">
-          <div class="meta-col">
-            <span class="meta-time">2026.04</span>
-            <span class="meta-role">优秀毕业论文</span>
-          </div>
-          <div class="content-col">
-            <div class="content-header">
-              <h3>优秀毕业论文</h3>
-            </div>
-            <div class="content-subtitle xmu-text">厦门大学马来西亚分校</div>
-            <div class="content-details">
-              <ul>
-                <li><strong>论文题目:</strong> <em>"A Systematic Investigation of Ionogel-Anode Pairings for Lithium Ion Batteries"</em></li>
-              </ul>
-            </div>
-            <img src="images/cert.jpg" alt="FYP1 Certificate" class="award-cert-img">
-          </div>
-        </div>
+        <div class="other-honors"><p><strong>其他荣誉</strong>2022—2023 学年三等奖学金</p><a class="text-link" href="images/cert.jpg" target="_blank" rel="noopener noreferrer">毕业设计优秀奖 · I（2025/09 学期）<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
       </section>
 
-      <footer>
-        <p>Designed and Created by Qiu Yanzihan. &copy; 2026 All Rights Reserved.</p>
-      </footer>
+      <section id="more" aria-labelledby="more-heading">
+        <div class="section-heading"><p class="eyebrow">05 / MORE TO EXPLORE</p><h2 id="more-heading">更多研究与创作</h2><p>材料实验、工程验证，以及工作之外的动手实践。</p></div>
+        <details class="archive"><summary><span><strong>离子凝胶电解质与负极兼容性</strong><span class="archive-meta">2025.09 — 2026.07 · 材料实验 / 毕业设计</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>围绕 UV 固化 AAm / DMAAm–TFSI 离子凝胶，比较盐浓度、固化时间、添加剂和厚度对界面与传输性能的影响；完成 EIS、恒流充放电与 CR2032 半电池测试，评估 Graphite、MCMB、Hard Carbon 与 Silicon 负极适配性。</p><p>毕业设计第二阶段题目：<em>Optimization and Anode Compatibility Evaluation of UV-Cured AAm/DMAAm Ionogel Electrolytes for Lithium-Ion Half-Cells</em>。获 Merit Final Year Project II Award。</p><p class="project-footnote">厦门大学马来西亚分校 · 导师：范能平教授</p><div class="gallery two-up"><figure><button class="image-trigger photo-frame" type="button" data-gallery="ionogel" data-image="images/ionogel-test.webp" data-caption="离子凝胶 · 实验装置" aria-label="放大查看离子凝胶实验装置"><img src="images/ionogel-test.webp" width="1279" height="1706" alt="离子凝胶实验装置" loading="lazy"></button><figcaption>实验装置</figcaption></figure><figure><button class="image-trigger photo-frame" type="button" data-gallery="ionogel" data-image="images/ionogel-cycling.webp" data-caption="离子凝胶 · 电池循环测试" aria-label="放大查看电池循环测试记录"><img src="images/ionogel-cycling.webp" width="1440" height="810" alt="离子凝胶电池循环测试记录" loading="lazy"></button><figcaption>循环测试记录</figcaption></figure></div></div></details>
+        <details class="archive"><summary><span><strong>可定制投影灯</strong><span class="archive-meta">2025.09 — 2026.01 · AI 辅助设计 / 3D 打印</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>独立提出可替换图案模块的投影灯设计，基于开源结构模板改造灯体；结合腾讯混元 3D 与 Shapr3D 完成建模和尺寸适配，使用 Bambu Lab X1 Carbon 打印、装配并验证投影效果。</p><div class="gallery two-up"><figure><button class="image-trigger photo-frame" type="button" data-gallery="maker" data-image="images/maker-lamp.webp" data-caption="可定制投影灯 · 成品与投影效果" aria-label="放大查看投影灯成品"><img src="images/maker-lamp.webp" width="960" height="1280" alt="3D 打印投影灯成品" loading="lazy"></button><figcaption>成品与投影</figcaption></figure><figure><button class="image-trigger photo-frame" type="button" data-gallery="maker" data-image="images/maker-process.webp" data-caption="可定制投影灯 · Bambu Lab 打印过程" aria-label="放大查看 3D 打印过程"><img src="images/maker-process.webp" width="1600" height="1200" alt="Bambu Lab 3D 打印过程" loading="lazy"></button><figcaption>打印与装配</figcaption></figure></div></div></details>
+        <details class="archive"><summary><span><strong>热工参数测量与温度动态校正</strong><span class="archive-meta">2024.08 起 · 核心成员 / 第二作者</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>搭建 T 型热电偶与红外测温联合平台，完成 20+ 组实验与 10 万+ 数据清洗分析；参与动态校正模型与实验框架设计，测温精度提升 32%。</p><p class="project-footnote">厦门大学与福建中烟集团 · 导师：张尧立教授</p></div></details>
+      </section>
 
+      <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email" href="mailto:yanzihanqiu@link.cuhk.edu.cn">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
     </main>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      /* === 1. 首页弹窗下拉切换动画逻辑 === */
-      const welcomeCurtain = document.getElementById('welcome-curtain');
-      const body = document.body;
-      const scrollPrompt = document.getElementById('scroll-prompt');
-      let isUnlocked = false;
-
-      function unlockResume() {
-        if (isUnlocked) return;
-        isUnlocked = true;
-        
-        // 触发向上滑动动画
-        welcomeCurtain.classList.add('slide-up-hidden');
-        
-        // 动画结束后解除 body 的滚动锁定，并彻底隐藏幕布避免阻挡点击
-        setTimeout(() => {
-          body.classList.remove('locked-scroll');
-          welcomeCurtain.style.display = 'none';
-          
-          // 进入后自动触发一次视野检查，让简历第一段内容浮现
-          fadeElements.forEach(el => fadeObserver.observe(el));
-        }, 1000);
-      }
-
-      // 监听鼠标滚轮 (PC)
-      window.addEventListener('wheel', (e) => {
-        if (!isUnlocked && e.deltaY > 0) {
-          unlockResume();
-        }
-      });
-
-      // 监听触摸滑动 (移动端)
-      let touchStartY = 0;
-      window.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-      });
-      window.addEventListener('touchmove', (e) => {
-        if (!isUnlocked) {
-          let touchEndY = e.touches[0].clientY;
-          if (touchStartY - touchEndY > 30) { // 向上滑动超过30px
-            unlockResume();
-          }
-        }
-      });
-
-      // 点击向下箭头也可以触发
-      if(scrollPrompt) {
-        scrollPrompt.addEventListener('click', unlockResume);
-      }
-
-      /* === 2. ScrollSpy (自动高亮左侧当前模块) === */
-      const sections = document.querySelectorAll('.scrollspy-section');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px', 
-        threshold: 0
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            const id = entry.target.getAttribute('id');
-            const correspondingLink = document.querySelector(`.nav-link[href="#${id}"]`);
-            if (correspondingLink) {
-              correspondingLink.classList.add('active');
-            }
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-
-      /* === 3. 动效: 滚动时淡入出现 (Fade-in-up) === */
-      const fadeElements = document.querySelectorAll('.fade-in-up');
-      const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-      /* === 4. 防护与反爬虫逻辑 === */
-      // 动态拼接联系方式，防止被源码静态扫描
-      const p = ['151', '6001', '0090'];
-      const e = ['yanzihanqiu', '@', 'link.cuhk.edu.cn'];
-      document.getElementById('contact-phone').innerText = p.join('');
-      const emailEl = document.getElementById('contact-email');
-      emailEl.innerText = e.join('');
-      emailEl.href = 'mailto:' + e.join('');
-
-      // 禁用右键菜单
-      document.addEventListener('contextmenu', event => event.preventDefault());
-
-      // 禁用常见的开发者工具快捷键
-      document.addEventListener('keydown', (e) => {
-        if (e.keyCode == 123) { // F12
-          e.preventDefault();
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
-          e.preventDefault();
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { // Ctrl+Shift+C
-          e.preventDefault();
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
-          e.preventDefault();
-        }
-        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U
-          e.preventDefault();
-        }
-      });
-      
-    });
-  </script>
+  <dialog class="lightbox" aria-labelledby="lightbox-caption">
+    <div class="lightbox-toolbar"><span id="lightbox-count"></span><button class="lightbox-close" type="button" aria-label="关闭图片查看器">关闭 <span aria-hidden="true">×</span></button></div>
+    <img class="lightbox-image" alt="">
+    <div class="lightbox-bottom"><button class="lightbox-prev" type="button" aria-label="上一张图片">←</button><p id="lightbox-caption" aria-live="polite"></p><button class="lightbox-next" type="button" aria-label="下一张图片">→</button></div>
+  </dialog>
 </body>
 </html>
-

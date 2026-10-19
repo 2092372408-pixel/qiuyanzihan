@@ -11,15 +11,16 @@ Welcome to my personal academic and professional portfolio repository.
 
 This repository hosts the source code for my personal resume website. It highlights my academic journey, research experience in AI and renewable energy, professional internships, and honorable awards.
 
-- **Research Focus**: AI for Science, Lithium Battery Lifetime Prediction, Energy Materials.
+- **Focus**: AI applications, Agent engineering, programming education, and scientific knowledge extraction.
 - **Education**: 
-  - The Chinese University of Hong Kong, Shenzhen (MPhil in AI, Upcoming)
+  - The Chinese University of Hong Kong, Shenzhen (MPhil in AI, 2026–2028 expected)
   - Xiamen University (B.Eng in New Energy Science and Engineering)
   - Shanghai Jiao Tong University (Exchange)
 
 ## 🛠 Tech Stack
 - Pure HTML5 / CSS3 / Vanilla JS
-- Fully responsive design with clean UI/UX
+- Responsive layout with selected projects, publication links, experience, and honors
+- High-resolution portrait and keyboard-accessible image viewer
 
 ---
 *© Designed and created by Qiu Yanzihan. All rights reserved.*
