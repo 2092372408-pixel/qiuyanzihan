@@ -19,6 +19,12 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 updateNavigation();
 
+const terminal = document.querySelector('.terminal-line');
+if (terminal && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  terminal.classList.add('is-typing');
+  terminal.addEventListener('animationend', () => terminal.classList.remove('is-typing'), { once: true });
+}
+
 const lightbox = document.querySelector('.lightbox');
 const image = lightbox.querySelector('.lightbox-image');
 const caption = document.querySelector('#lightbox-caption');

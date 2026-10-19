@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="丘严子涵的个人主页。AI 应用与 Agent 开发，编程学习平台、科研文献抽取，以及 AI for Science 研究。">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="theme-color" content="#090b0a">
-  <title>丘严子涵 · AI 应用与 Agent 开发</title>
+  <meta name="theme-color" content="#f3f8f5">
+  <title>David 丘严子涵 · AI 应用与 Agent 开发</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -16,17 +17,17 @@
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .8a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.55v-2.14c-3.21.7-3.89-1.36-3.89-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 12 .8Z"/></symbol>
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
-    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
     <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></symbol>
   </svg>
 
   <div class="site-shell">
     <header class="profile">
-      <a class="wordmark" href="#about" aria-label="回到个人介绍">QY<span>Yanzihan Qiu</span></a>
+      <a class="wordmark" href="#about" aria-label="回到 David 的个人介绍">david<span aria-hidden="true">_</span></a>
       <nav class="section-nav" aria-label="页面导航">
-        <a href="#work" aria-current="location">精选项目</a>
+        <a href="#education">教育背景</a>
+        <a href="#work">AI 项目</a>
         <a href="#publication">论文研究</a>
-        <a href="#experience">教育与经历</a>
+        <a href="#experience">实习经历</a>
         <a href="#honors">奖项荣誉</a>
         <a href="#more">更多创作</a>
       </nav>
@@ -36,25 +37,32 @@
     <main id="main">
       <section id="about" class="intro-section" aria-labelledby="intro-heading">
         <div class="hero-copy">
-          <p class="availability"><span></span>寻找 AI 应用与 Agent 研发实习</p>
-          <h2 id="intro-heading">让 AI，<br>在真实场景里工作。</h2>
-          <p class="intro-copy">你好，我是子涵。现就读于香港中文大学（深圳）人工智能研究型硕士，本科毕业于厦门大学。从编程学习和科研文献处理中的实际问题出发，独立完成需求分析、工作流设计与应用开发。</p>
-          <p class="intro-copy secondary">正在构建 EduPilot 编程学习平台与科研文献抽取流程，关注工具调用、检索、长期记忆，以及可验证的模型输出。</p>
-          <div class="intro-links"><a class="primary-button" href="#work">查看我的项目 <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+          <p class="intro-greeting">你好，我是</p>
+          <h1 id="intro-heading"><span class="display-name">David<span class="name-cursor" aria-hidden="true">_</span></span><span class="name-cn">丘严子涵</span></h1>
+          <p class="terminal-line"><span aria-hidden="true">&gt; </span><span class="typed-copy">Building AI applications &amp; agents.</span><span class="typing-cursor" aria-hidden="true">▍</span></p>
+          <p class="intro-copy">现就读于香港中文大学（深圳）人工智能研究型硕士，本科毕业于厦门大学。喜欢从实际问题出发，把想法写成可以使用、也可以验证的应用。</p>
+          <p class="intro-copy secondary">正在做 EduPilot 编程学习平台与科研文献抽取。关注工具调用、检索、长期记忆，以及科学场景中的模型可靠性。</p>
+          <div class="intro-links"><a class="primary-button" href="#work">浏览项目 <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a><a class="text-link" href="mailto:yanzihanqiu@link.cuhk.edu.cn">邮件联系 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+          <p class="availability"><span></span>寻找 AI 应用 / Agent 研发实习</p>
         </div>
-        <aside class="hero-profile" aria-label="关于子涵">
-          <svg class="pixel-field" viewBox="0 0 360 200" fill="none" aria-hidden="true"><defs><pattern id="pixel-pattern" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="currentColor"/></pattern></defs><path d="M0 0H72V48H120V84H168V120H216V156H264V200H192V164H144V128H96V92H48V56H0ZM192 0H264V36H312V72H360V128H288V92H240V56H192ZM0 140H36V176H72V200H0Z" fill="url(#pixel-pattern)"/></svg>
-          <div class="identity">
-            <img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 600px) 96px, (max-width: 900px) 112px, 144px" width="544" height="680" alt="丘严子涵的个人肖像" fetchpriority="high" decoding="sync">
-            <div><p class="name-en">Yanzihan Qiu</p><h1>丘严子涵</h1><p class="role">AI 应用 / Agent 开发</p></div>
-          </div>
-          <p class="profile-location">深圳 · 香港中文大学（深圳）</p>
-          <div class="profile-links"><a href="mailto:yanzihanqiu@link.cuhk.edu.cn"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>邮件联系</a><a class="profile-phone" href="tel:15160010090">151 6001 0090</a></div>
+        <aside class="hero-profile" aria-label="个人肖像与所在地">
+          <div class="portrait-wrap"><img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 600px) 144px, 224px" width="544" height="680" alt="David 丘严子涵的个人肖像" fetchpriority="high" decoding="sync"></div>
+          <div class="portrait-caption"><span>David Qiu</span><span>Shenzhen, CN</span></div>
+          <a class="profile-phone" href="tel:15160010090">151 6001 0090</a>
         </aside>
       </section>
 
+      <section id="education" class="resume-section" aria-labelledby="education-heading">
+        <div class="section-heading"><p class="eyebrow">Education</p><h2 id="education-heading">教育背景</h2></div>
+        <div class="timeline">
+          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>预计</span></p><div><h3>香港中文大学（深圳）</h3><p class="timeline-role">人工智能 · 研究型硕士 MPhil · 在读</p><p>人工智能学院 · 关注 AI for Science、科学知识工程与领域模型应用。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2026.03 — 2026.06</p><div><h3>上海交通大学</h3><p class="timeline-role">净零碳燃料课程交换 · Low Carbon-UK College</p><p>担任项目组长，获最佳小组展示奖（Distinction）。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><h3>厦门大学</h3><p class="timeline-role">新能源科学与工程 · 工学学士（荣誉）</p><p>马来西亚分校能源与化工学院 · <strong>CGPA 3.53 / 4.00</strong></p><p>材料科学基础、微积分、AI 与仿真等课程 A；学年三等奖学金、院长嘉许名单、毕业设计优秀奖。</p></div></article>
+        </div>
+      </section>
+
       <section id="work" aria-labelledby="work-heading">
-        <div class="section-heading"><p class="eyebrow">Selected work</p><h2 id="work-heading">从问题出发，把应用做出来。</h2><p>编程教育与科研知识处理，是我目前投入最多的两个方向。</p></div>
+        <div class="section-heading"><p class="eyebrow">Selected work</p><h2 id="work-heading">AI 应用项目</h2><p>编程教育与科研知识处理，是我目前投入最多的两个方向。</p></div>
         <article class="project">
           <div class="project-meta"><span class="project-type">AI 应用 · 编程教育</span><span>2026.03 — 至今</span></div>
           <div class="project-title"><h3>EduPilot</h3><a class="repository-link" href="https://github.com/2092372408-pixel/EduPilot" target="_blank" rel="noopener noreferrer" aria-label="EduPilot GitHub 私有仓库，需要访问权限"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub · 私有仓库<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
@@ -67,10 +75,11 @@
           </ul>
           <p class="result-note"><span>验证记录</span>2026.10 固定 60 轮合成对话维护测试：维护模型调用由 32 次降至 12 次，减少 62.5%。</p>
           <ul class="tech-list" aria-label="EduPilot 技术栈"><li>LangGraph</li><li>Tool Calling</li><li>RAG</li><li>Node.js</li><li>SQLite</li><li>Python</li></ul>
-          <div class="gallery project-gallery" aria-label="EduPilot 界面截图">
-            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-coding.webp" data-caption="EduPilot · Python 在线编程与服务端判题" aria-label="放大查看 EduPilot 在线编程界面"><img src="images/edupilot-coding.webp" width="1280" height="720" alt="EduPilot 的题目目录、Python 编辑器与运行判分按钮" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>01 / 在线编程与判题</figcaption></figure>
-            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-home.webp" data-caption="EduPilot · 教材与学习工作台" aria-label="放大查看 EduPilot 学习工作台"><img src="images/edupilot-home.webp" width="1280" height="720" alt="EduPilot 的教材学习与教学 Agent 工作台" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>02 / 教材与学习工作台</figcaption></figure>
+          <div class="gallery project-gallery" aria-label="EduPilot 当前版本真实界面">
+            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-learning-current.webp" data-caption="EduPilot 1.1.4 · 预习自测 · 2026.10.19 本地演示实拍" aria-label="放大查看 EduPilot 当前预习自测界面"><img src="images/edupilot-learning-current.webp" width="1440" height="900" alt="当前 EduPilot 的 Python 课程知识点导航与预习自测题卡" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>预习与自测题卡</figcaption></figure>
+            <figure><button class="image-trigger screenshot-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-coding-current.webp" data-caption="EduPilot 1.1.4 · 在线编程与服务端判题 · 2026.10.19 本地演示实拍" aria-label="放大查看 EduPilot 当前在线编程界面"><img src="images/edupilot-coding-current.webp" width="1440" height="900" alt="当前 EduPilot 的函数编程题、Python 编辑器和服务端判分反馈" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>在线编程与判题反馈</figcaption></figure>
           </div>
+          <figure class="architecture-figure"><button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图"><img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>系统架构 · 教学角色编排、能力模块与学习数据</figcaption></figure>
         </article>
 
         <article class="project">
@@ -102,29 +111,23 @@
       </section>
 
       <section id="experience" aria-labelledby="experience-heading">
-        <div class="section-heading"><p class="eyebrow">Background</p><h2 id="experience-heading">教育与经历</h2></div>
-        <h3 class="subsection-title">教育背景</h3>
+        <div class="section-heading"><p class="eyebrow">Experience</p><h2 id="experience-heading">实习经历</h2></div>
         <div class="timeline">
-          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>预计</span></p><div><h4>香港中文大学（深圳）</h4><p class="timeline-role">人工智能 · 研究型硕士 MPhil · 在读</p><p>人工智能学院 · 关注 AI for Science、科学知识工程与领域模型应用。</p></div></article>
-          <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><h4>厦门大学</h4><p class="timeline-role">新能源科学与工程 · 工学学士（荣誉）</p><p>马来西亚分校能源与化工学院 · <strong>CGPA 3.53 / 4.00</strong></p><p>材料科学基础、微积分、AI 与仿真等课程 A；学年三等奖学金、院长嘉许名单、毕业设计优秀奖。</p></div></article>
-          <article class="timeline-item"><p class="timeline-date">2026.03 — 2026.06</p><div><h4>上海交通大学</h4><p class="timeline-role">净零碳燃料课程交换 · Low Carbon-UK College</p><p>担任项目组长，获最佳小组展示奖（Distinction）。</p></div></article>
-        </div>
-        <h3 class="subsection-title">实习经历</h3>
-        <div class="timeline">
-          <article class="timeline-item"><p class="timeline-date">2025.08 — 2025.09</p><div><h4>冠宇电源有限公司</h4><p class="timeline-role">热仿真工程师 · 动力电池研发中心</p><p>独立搭建 COMSOL 动力电池热模型，与 Ansys Fluent 及实验数据对照，误差控制在 ±15%。</p></div></article>
-          <article class="timeline-item"><p class="timeline-date">2025.03 — 2025.08</p><div><h4>美的集团股份有限公司</h4><p class="timeline-role">性能开发工程师 · 楼宇科技研发中心</p><p>基于内部 AI 平台独立搭建图像识别、信息流转、工单创建与归档分析流程，完成节点编排、字段映射及培训，累计覆盖 110+ 人次。</p><p>开展竞品拆解、核心零部件与成本分析，形成 40 页结构化报告。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2025.08 — 2025.09</p><div><h3>冠宇电源有限公司</h3><p class="timeline-role">热仿真工程师 · 动力电池研发中心</p><p>独立搭建 COMSOL 动力电池热模型，与 Ansys Fluent 及实验数据对照，误差控制在 ±15%。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2025.03 — 2025.08</p><div><h3>美的集团股份有限公司</h3><p class="timeline-role">性能开发工程师 · 楼宇科技研发中心</p><p>基于内部 AI 平台独立搭建图像识别、信息流转、工单创建与归档分析流程，完成节点编排、字段映射及培训，累计覆盖 110+ 人次。</p><p>开展竞品拆解、核心零部件与成本分析，形成 40 页结构化报告。</p></div></article>
         </div>
         <div class="skills"><h3 class="subsection-title">常用技术与方法</h3><dl><div><dt>开发</dt><dd>Python · JavaScript · Node.js · SQLite</dd></div><div><dt>Agent</dt><dd>LangGraph · Tool Calling · RAG · BM25 / 向量检索 · 长期记忆</dd></div><div><dt>研究</dt><dd>原文证据溯源 · 错误归因 · 对照评估 · Transformer / CNN</dd></div><div><dt>语言</dt><dd>IELTS 6.5</dd></div></dl></div>
       </section>
 
       <section id="honors" aria-labelledby="honors-heading">
-        <div class="section-heading"><p class="eyebrow">Honors</p><h2 id="honors-heading">奖项与荣誉</h2><p>学习和研究过程中的几个记录。</p></div>
+        <div class="section-heading"><p class="eyebrow">Honors</p><h2 id="honors-heading">奖项与荣誉</h2><p>本科阶段的学习与研究记录。点击证书可查看原图。</p></div>
         <div class="honors-grid">
           <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-deans-list.webp" data-caption="院长嘉许名单 · Dean’s List · 2026/04 学期" aria-label="放大查看院长嘉许名单证书"><img src="images/award-deans-list.webp" width="1437" height="2048" alt="厦门大学马来西亚分校院长嘉许名单证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>院长嘉许名单</h3><p>Dean’s List<br>厦门大学马来西亚分校</p></article>
           <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-fyp-ii.webp" data-caption="毕业设计优秀奖 · Merit Final Year Project II Award · 2026/04 学期" aria-label="放大查看毕业设计第二阶段优秀奖证书"><img src="images/award-fyp-ii.webp" width="1479" height="2048" alt="厦门大学马来西亚分校毕业设计第二阶段优秀奖证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>毕业设计优秀奖 · II</h3><p>Merit Final Year Project II Award<br>离子凝胶电解质与负极兼容性研究</p></article>
           <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/cert2_new.jpg" data-caption="上海交通大学 · Best Group Presentation Award · Distinction · 2026.03—06 课程" aria-label="放大查看上海交通大学最佳小组展示奖证书"><img src="images/cert2_new.jpg" width="1024" height="722" alt="上海交通大学净零碳燃料课程最佳小组展示奖 Distinction 证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026.03 — 06 课程</p><h3>最佳小组展示奖</h3><p>Distinction · 项目组长<br>上海交通大学 Net Zero-Carbon Fuels</p></article>
+          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/cert.jpg" data-caption="毕业设计优秀奖 · Merit Final Year Project I Award · 2025/09 学期" aria-label="放大查看毕业设计第一阶段优秀奖证书"><img src="images/cert.jpg" alt="厦门大学马来西亚分校毕业设计第一阶段优秀奖证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2025/09 学期</p><h3>毕业设计优秀奖 · I</h3><p>Merit Final Year Project I Award<br>厦门大学马来西亚分校</p></article>
+          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-scholarship-2023.webp" data-caption="2022—2023 学年三等奖学金 · Distinction Award · 2023.08.14" aria-label="放大查看学年三等奖学金通知"><img src="images/award-scholarship-2023.webp" width="1698" height="2400" alt="厦门大学马来西亚分校 2023 年 Distinction Award 奖学金通知书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2022 — 2023 学年</p><h3>学年三等奖学金</h3><p>Distinction Award<br>厦门大学马来西亚分校</p></article>
         </div>
-        <div class="other-honors"><p><strong>其他荣誉</strong>2022—2023 学年三等奖学金</p><a class="text-link" href="images/cert.jpg" target="_blank" rel="noopener noreferrer">毕业设计优秀奖 · I（2025/09 学期）<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
       </section>
 
       <section id="more" aria-labelledby="more-heading">
@@ -134,7 +137,7 @@
         <details class="archive"><summary><span><strong>热工参数测量与温度动态校正</strong><span class="archive-meta">2024.08 起 · 核心成员 / 第二作者</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>搭建 T 型热电偶与红外测温联合平台，完成 20+ 组实验与 10 万+ 数据清洗分析；参与动态校正模型与实验框架设计，测温精度提升 32%。</p><p class="project-footnote">厦门大学与福建中烟集团 · 导师：张尧立教授</p></div></details>
       </section>
 
-      <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email" href="mailto:yanzihanqiu@link.cuhk.edu.cn">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
+      <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email" href="mailto:yanzihanqiu@link.cuhk.edu.cn">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 David · 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
     </main>
   </div>
   <dialog class="lightbox" aria-labelledby="lightbox-caption">

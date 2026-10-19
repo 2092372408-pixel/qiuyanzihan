@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680" role="img" aria-labelledby="title desc">
+  <title id="title">EduPilot 系统架构</title>
+  <desc id="desc">浏览器通过 HTTP 与 SSE 连接 LangGraph 教学编排。五类教学角色按任务路由，调用教材检索、Python 执行判题与 MCP 外部工具；模型接口与学习数据提供支持。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m0 0 10 5-10 5" fill="#6c9e81"/></marker></defs>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; fill: #192c25; }
+    .title { font-size: 26px; font-weight: 600; }
+    .label { font-size: 18px; font-weight: 600; }
+    .body { font-size: 15px; fill: #52675d; }
+    .mono { font-family: Consolas, monospace; font-size: 13px; fill: #087e55; }
+    .box { fill: #fff; stroke: #c7dccf; stroke-width: 1.5; }
+    .wire { fill: none; stroke: #6c9e81; stroke-width: 1.8; marker-end: url(#arrow); }
+  </style>
+  <rect width="1120" height="680" rx="8" fill="#f8fcf9"/>
+  <text class="title" x="40" y="51">EduPilot</text>
+  <text class="body" x="190" y="50">从学习交互，到可验证的教学反馈</text>
+  <text class="mono" x="953" y="50">v1.1.4</text>
+  <rect class="box" x="40" y="80" width="1040" height="82" rx="7"/>
+  <text class="label" x="64" y="112">浏览器学习界面</text>
+  <text class="body" x="64" y="140">课程与教材上传　/　教学对话　/　Python 在线编程　/　选择题与报告</text>
+  <text class="mono" x="978" y="112">public/</text>
+  <path class="wire" d="M560 163V204"/>
+  <text class="mono" x="581" y="188">HTTP + SSE</text>
+  <rect x="40" y="207" width="1040" height="155" rx="7" fill="#e7f6ed" stroke="#99c5aa" stroke-width="1.5"/>
+  <text class="label" x="64" y="241">LangGraph 教学编排</text>
+  <text class="mono" x="795" y="241">server/agent/ + graph/</text>
+  <text class="body" x="64" y="270">任务路由　→　角色执行　→　工具调用与结果反馈</text>
+  <rect x="64" y="290" width="650" height="43" rx="4" fill="white"/>
+  <text class="body" x="82" y="317">通用　/　协调　/　预习　/　学习　/　复习</text>
+  <text class="body" x="754" y="309">工具白名单 · 调用预算</text>
+  <text class="body" x="754" y="334">学习状态 · 记忆与上下文</text>
+  <path class="wire" d="M216 362V404"/>
+  <path class="wire" d="M560 362V404"/>
+  <path class="wire" d="M904 362V404"/>
+  <rect class="box" x="40" y="407" width="324" height="115" rx="7"/>
+  <text class="label" x="64" y="440">教材知识检索</text>
+  <text class="body" x="64" y="469">解析 / 切分 / BM25 / 向量 / RRF</text>
+  <text class="mono" x="64" y="499">server/kb/</text>
+  <rect class="box" x="386" y="407" width="348" height="115" rx="7"/>
+  <text class="label" x="410" y="440">在线编程与判题</text>
+  <text class="body" x="410" y="469">Python 执行 / 测试用例 / 核验成绩</text>
+  <text class="mono" x="410" y="499">server/coding/</text>
+  <rect class="box" x="756" y="407" width="324" height="115" rx="7"/>
+  <text class="label" x="780" y="440">MCP 外部工具</text>
+  <text class="body" x="780" y="469">联网检索 / 网页读取 / 工具桥接</text>
+  <text class="mono" x="780" y="499">server/mcp/</text>
+  <path d="M40 549H1080" stroke="#c7dccf" stroke-dasharray="5 5"/>
+  <text class="body" x="40" y="576">共享支持</text>
+  <text class="label" x="40" y="609">模型接口</text>
+  <text class="body" x="40" y="637">OpenAI 兼容接口 / 离线演示引擎</text>
+  <text class="label" x="557" y="609">学习数据与长期记忆</text>
+  <text class="body" x="557" y="637">SQLite 会话与记忆 / 教材索引 / 学习证据与进度</text>
+</svg>
