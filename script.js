@@ -19,10 +19,44 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 updateNavigation();
 
-const terminal = document.querySelector('.terminal-line');
-if (terminal && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  terminal.classList.add('is-typing');
-  terminal.addEventListener('animationend', () => terminal.classList.remove('is-typing'), { once: true });
+const directionLines = [...document.querySelectorAll('.direction-line')];
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let introSeen = true;
+try {
+  introSeen = localStorage.getItem('portfolio-direction-seen') === '1';
+  localStorage.setItem('portfolio-direction-seen', '1');
+} catch { introSeen = true; /* Keep the heading complete if storage is unavailable. */ }
+if (directionLines.length && !introSeen && !reducedMotion) {
+  const text = directionLines.map(line => [...line.textContent]);
+  directionLines.forEach(line => { line.textContent = ''; });
+  let lineIndex = 0;
+  let characterIndex = 0;
+  directionLines[0].classList.add('is-typing');
+  const timer = setInterval(() => {
+    directionLines[lineIndex].textContent += text[lineIndex][characterIndex++];
+    if (characterIndex < text[lineIndex].length) return;
+    directionLines[lineIndex].classList.remove('is-typing');
+    lineIndex++;
+    characterIndex = 0;
+    if (lineIndex === directionLines.length) clearInterval(timer);
+    else directionLines[lineIndex].classList.add('is-typing');
+  }, 90);
+}
+
+const demoImage = document.querySelector('#edupilot-demo');
+const demoToggle = document.querySelector('.demo-toggle');
+if (demoImage && demoToggle) {
+  const poster = demoImage.getAttribute('src');
+  let playing = false;
+  function setDemoPlayback(next) {
+    playing = next;
+    demoImage.src = playing ? demoImage.dataset.animation : poster;
+    demoToggle.textContent = playing ? '暂停演示' : '播放演示';
+    demoToggle.setAttribute('aria-pressed', String(playing));
+  }
+  demoToggle.hidden = false;
+  setDemoPlayback(!reducedMotion);
+  demoToggle.addEventListener('click', () => setDemoPlayback(!playing));
 }
 
 const lightbox = document.querySelector('.lightbox');
