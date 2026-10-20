@@ -9,8 +9,8 @@
   <title>David 丘严子涵 · AI 应用与 Agent 开发</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261020">
-  <script src="script.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261020-features">
+  <script src="script.js?v=20261020-features" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -72,10 +72,16 @@
           </ul>
           <p class="result-note"><span>验证记录</span>2026.10 固定 60 轮合成对话维护测试：维护模型调用由 32 次降至 12 次，减少 62.5%。</p>
           <ul class="tech-list" aria-label="EduPilot 技术栈"><li>LangGraph</li><li>Tool Calling</li><li>RAG</li><li>Node.js</li><li>SQLite</li><li>Python</li></ul>
-          <figure class="demo-figure">
-            <img id="edupilot-demo" class="demo-image" src="images/edupilot-api-demo-poster.webp" data-animation="images/edupilot-api-demo.gif" width="1280" height="800" alt="EduPilot 真实 API 模式操作实录：函数讲解、互动自测、编写并运行 Python，以及服务端判题 2/2 通过。" loading="lazy">
-            <figcaption class="demo-caption"><span>真实 API 模式实录 · 讲解、自测与在线编程（流程节选）</span><span class="demo-controls"><button class="demo-toggle" type="button" aria-controls="edupilot-demo" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-api-demo.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></span></figcaption>
-          </figure>
+          <div id="edupilot-features" class="feature-gallery">
+            <div class="feature-gallery-heading"><div><h4>EduPilot 功能实录</h4><p>真实 API 实录（流程节选），左右滑动查看。</p></div><div class="gallery-navigation" hidden><button class="demo-previous" type="button" aria-label="上一个功能演示" aria-controls="edupilot-demos">←</button><span class="demo-position" aria-live="polite">1 / 5</span><button class="demo-next" type="button" aria-label="下一个功能演示" aria-controls="edupilot-demos">→</button></div></div>
+            <ul id="edupilot-demos" class="feature-demos" aria-label="EduPilot 特色功能演示" tabindex="0">
+              <li class="feature-demo"><figure><img id="demo-coding" class="demo-image" src="images/edupilot-coding-poster.webp" data-animation="images/edupilot-coding.gif" width="1280" height="800" alt="运行得到错误输出后，向做题助手提问；根据当前代码的提示修正函数，再运行并提交判题。" loading="lazy"><figcaption><h4>带着代码和运行结果问 AI</h4><p>在线 Python 编辑、运行与判题，做题助手结合当前题目和代码给出提示。</p><div class="demo-controls"><button class="demo-toggle" type="button" aria-controls="demo-coding" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-coding.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></figcaption></figure></li>
+              <li class="feature-demo"><figure><img id="demo-textbook" class="demo-image" src="images/edupilot-textbook-poster.webp" data-animation="images/edupilot-textbook.gif" width="1280" height="800" alt="上传 Markdown 教材，查看索引与讲义生成进度，进入自动整理的章节课程。" loading="lazy"><figcaption><h4>把自己的教材变成课程</h4><p>上传资料，生成章节、知识点讲义和配套题目，再围绕教材提问。</p><div class="demo-controls"><button class="demo-toggle" type="button" aria-controls="demo-textbook" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-textbook.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></figcaption></figure></li>
+              <li class="feature-demo"><figure><img id="demo-learning" class="demo-image" src="images/edupilot-learning-poster.webp" data-animation="images/edupilot-learning.gif" width="1280" height="800" alt="在学习对话中查看函数讲解、完成随堂检测，并进入下一学习阶段。" loading="lazy"><figcaption><h4>讲解、练习与阶段推进</h4><p>预习、学习、复习各有路径；在对话中作答，用检测结果推进进度。</p><div class="demo-controls"><button class="demo-toggle" type="button" aria-controls="demo-learning" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-learning.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></figcaption></figure></li>
+              <li class="feature-demo"><figure><img id="demo-mistakes" class="demo-image" src="images/edupilot-mistakes-poster.webp" data-animation="images/edupilot-mistakes.gif" width="1280" height="800" alt="答错后自动收录到错题本，查看答案解析并打开原题重新练习。" loading="lazy"><figcaption><h4>错题自动收录，再练一次</h4><p>保留自己的答案、正确答案和解析，从错题本回到互动题卡重练。</p><div class="demo-controls"><button class="demo-toggle" type="button" aria-controls="demo-mistakes" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-mistakes.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></figcaption></figure></li>
+              <li class="feature-demo"><figure><img id="demo-report" class="demo-image" src="images/edupilot-report-poster.webp" data-animation="images/edupilot-report.gif" width="1280" height="800" alt="查看真实学习记录生成的报告，从待完成的检测返回对应课程继续学习。" loading="lazy"><figcaption><h4>从学情报告找到下一步</h4><p>查看学习覆盖、已验证掌握和待完成检测，直接回到课程继续学习。</p><div class="demo-controls"><button class="demo-toggle" type="button" aria-controls="demo-report" aria-pressed="false" hidden>播放演示</button><a href="images/edupilot-report.gif" target="_blank" rel="noopener noreferrer">查看原尺寸 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></figcaption></figure></li>
+            </ul>
+          </div>
           <figure class="architecture-figure"><button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图"><img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>系统架构 · 教学角色编排、能力模块与学习数据</figcaption></figure>
         </article>
 

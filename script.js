@@ -43,9 +43,8 @@ if (directionLines.length && !introSeen && !reducedMotion) {
   }, 90);
 }
 
-const demoImage = document.querySelector('#edupilot-demo');
-const demoToggle = document.querySelector('.demo-toggle');
-if (demoImage && demoToggle) {
+for (const demoImage of document.querySelectorAll('.demo-image')) {
+  const demoToggle = demoImage.closest('figure').querySelector('.demo-toggle');
   const poster = demoImage.getAttribute('src');
   let playing = false;
   function setDemoPlayback(next) {
@@ -57,6 +56,38 @@ if (demoImage && demoToggle) {
   demoToggle.hidden = false;
   setDemoPlayback(!reducedMotion);
   demoToggle.addEventListener('click', () => setDemoPlayback(!playing));
+}
+
+const demoTrack = document.querySelector('.feature-demos');
+if (demoTrack) {
+  const cards = [...demoTrack.children];
+  const controls = document.querySelector('.gallery-navigation');
+  const previousDemo = controls.querySelector('.demo-previous');
+  const nextDemo = controls.querySelector('.demo-next');
+  const position = controls.querySelector('.demo-position');
+  function currentDemo() {
+    let closest = 0;
+    for (let i = 1; i < cards.length; i++) {
+      if (Math.abs(cards[i].offsetLeft - cards[0].offsetLeft - demoTrack.scrollLeft) <
+          Math.abs(cards[closest].offsetLeft - cards[0].offsetLeft - demoTrack.scrollLeft)) closest = i;
+    }
+    return closest;
+  }
+  function updateDemos() {
+    previousDemo.disabled = demoTrack.scrollLeft <= 1;
+    nextDemo.disabled = demoTrack.scrollLeft >= demoTrack.scrollWidth - demoTrack.clientWidth - 1;
+    position.textContent = `${currentDemo() + 1} / ${cards.length}`;
+  }
+  function moveDemo(step) {
+    const target = cards[Math.max(0, Math.min(cards.length - 1, currentDemo() + step))];
+    demoTrack.scrollTo({ left: target.offsetLeft - cards[0].offsetLeft, behavior: reducedMotion ? 'instant' : 'smooth' });
+  }
+  previousDemo.addEventListener('click', () => moveDemo(-1));
+  nextDemo.addEventListener('click', () => moveDemo(1));
+  demoTrack.addEventListener('scroll', updateDemos, { passive: true });
+  window.addEventListener('resize', updateDemos);
+  controls.hidden = false;
+  updateDemos();
 }
 
 const lightbox = document.querySelector('.lightbox');
