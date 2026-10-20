@@ -9,7 +9,7 @@
   <title>David 丘严子涵 · AI 应用与 Agent 开发</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261020-logo-left">
+  <link rel="stylesheet" href="styles.css?v=20261020-project-context">
   <script src="script.js?v=20261020-features" defer></script>
 </head>
 <body>
@@ -52,7 +52,7 @@
       <section id="education" class="resume-section" aria-labelledby="education-heading">
         <div class="section-heading"><p class="eyebrow">Education</p><h2 id="education-heading">教育背景</h2></div>
         <div class="timeline">
-          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>预计</span></p><div><div class="education-header"><h3>香港中文大学（深圳）</h3><img class="school-logo" src="images/school-cuhk.webp" width="56" height="42" alt="香港中文大学校徽" loading="lazy"></div><p class="timeline-role">人工智能 · 研究型硕士 MPhil · 在读</p><p>人工智能学院 · 关注 AI for Science、科学知识工程与领域模型应用。</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>预计</span></p><div><div class="education-header"><h3>香港中文大学（深圳）</h3><img class="school-logo" src="images/school-cuhk.webp" width="56" height="42" alt="香港中文大学校徽" loading="lazy"></div><p class="timeline-role">人工智能 · 研究型硕士 MPhil · 在读</p><p>人工智能学院 · 关注 Agent 开发与 AI 应用，探索工具调用、检索增强与长期记忆。</p></div></article>
           <article class="timeline-item"><p class="timeline-date">2026.03 — 2026.06</p><div><div class="education-header"><h3>上海交通大学</h3><img class="school-logo" src="images/school-sjtu.webp" width="56" height="42" alt="上海交通大学校徽" loading="lazy"></div><p class="timeline-role">净零碳燃料课程交换 · Low Carbon-UK College</p><p>担任项目组长，获最佳小组展示奖（Distinction）。</p></div></article>
           <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><div class="education-header"><h3>厦门大学</h3><img class="school-logo" src="images/school-xmu.webp" width="56" height="42" alt="厦门大学校徽" loading="lazy"></div><p class="timeline-role">新能源科学与工程 · 工学学士（荣誉）</p><p>马来西亚分校能源与化工学院 · <strong>CGPA 3.53 / 4.00</strong></p><p>材料科学基础、微积分、AI 与仿真等课程 A；学年三等奖学金、院长嘉许名单、毕业设计优秀奖。</p></div></article>
         </div>
@@ -61,10 +61,11 @@
       <section id="work" aria-labelledby="work-heading">
         <div class="section-heading"><p class="eyebrow">Selected work</p><h2 id="work-heading">AI 应用项目</h2><p>编程教育与科研知识处理，是我目前投入最多的两个方向。</p></div>
         <article class="project">
-          <div class="project-meta"><span class="project-type">AI 应用 · 编程教育</span><span>2026.03 — 至今</span></div>
-          <div class="project-title"><h3 class="project-brand"><img class="project-logo" src="images/edupilot-mark.png" width="36" height="36" alt="" loading="lazy">EduPilot</h3><a class="repository-link" href="https://github.com/2092372408-pixel/EduPilot" target="_blank" rel="noopener noreferrer" aria-label="EduPilot GitHub 私有仓库，需要访问权限"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub · 私有仓库<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
-          <p class="project-subtitle">面向编程学习的教学 Agent 平台</p>
+          <div class="project-meta"><div><span class="project-type">AI 应用 · 编程教育</span><span class="project-date">2026.03 — 至今</span></div><ul class="project-partners" aria-label="合作院校"><li><img src="images/school-xmu.webp" width="48" height="36" alt="厦门大学" title="厦门大学 · 校企合作项目" loading="lazy"></li></ul></div>
+          <div class="project-title"><h3 class="project-brand"><img class="project-logo" src="images/edupilot-mark.png" width="36" height="36" alt="" loading="lazy">EduPilot</h3><a class="repository-link" href="https://github.com/2092372408-pixel/EduPilot" target="_blank" rel="noopener noreferrer" aria-label="EduPilot 早期项目雏形 GitHub 仓库，目前需要访问权限"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub · 项目雏形<svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+          <p class="project-subtitle">厦门大学校企合作项目 · 面向编程学习的教学 Agent 平台</p>
           <p>独立主导需求、Agent 架构与全栈实现，把教材学习、在线 Python 编程、服务端判题与教学反馈串联起来。项目已用于厦门大学信息学院 2 个教学班。</p>
+          <p class="project-footnote prototype-note">GitHub 仓库对应早期雏形；下方展示校企合作项目持续迭代后的功能。</p>
           <ul class="project-points">
             <li><strong>可执行的学习过程。</strong>浏览器内编辑、试运行与判题；把题目、代码和错误输出接入 AI 答疑，以核验成绩更新错题与知识点状态。</li>
             <li><strong>有边界的教学编排。</strong>基于 LangGraph 路由通用、协调、预习、学习、复习五类角色，使用工具白名单控制调用；普通问答与正式检测分离。</li>
@@ -85,17 +86,16 @@
           <figure class="architecture-figure"><button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图"><img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>系统架构 · 教学角色编排、能力模块与学习数据</figcaption></figure>
         </article>
 
-        <article class="project">
-          <div class="project-meta"><span class="project-type">AI for Science · 数据工程</span><span>2026.06 — 至今</span></div>
+        <article class="project research-project">
+          <div class="project-meta"><div><span class="project-type">AI for Science · 数据工程</span><span class="project-date">2026.06 — 至今</span></div><ul class="project-partners" aria-label="合作院校"><li><img src="images/school-cuhk.webp" width="48" height="36" alt="香港中文大学（深圳）" title="香港中文大学（深圳） · 合作院校" loading="lazy"></li><li><img src="images/school-pkusz.webp" width="48" height="36" alt="北京大学深圳研究生院" title="北京大学深圳研究生院 · 合作院校" loading="lazy"></li></ul></div>
           <div class="project-title"><h3>科研文献抽取与组合图处理</h3></div>
           <p class="project-subtitle">层状正极科学知识抽取 · 独立负责文本与图像处理</p>
-          <p>围绕科研文献中“信息散、流程长、图文难关联”的问题，构建 Python 与 LLM 驱动的结构化抽取流程，保留原文、样本身份和图像来源。</p>
-          <ul class="project-points">
-            <li><strong>从错误样本改进抽取。</strong>通过“先锁定流程、再补齐条件”处理合成步骤遗漏，合成路径提取准确率由 34.2% 提升至 97.5%；400 篇人工复核中，最终产物抽取准确率为 98.5%。</li>
-            <li><strong>让事实与来源对应。</strong>以冻结样本注册表贯通产物、合成、性能与形貌抽取，校验来源及缓存身份；100 篇冻结输入的离线重导出中，370 个样本、912 条事实无身份错配，另隔离 1 个待复核样本。</li>
-            <li><strong>图文数据与组合图拆分。</strong>完成覆盖 2,689 个唯一 DOI、32,614 个可读图片文件的清点与索引；接入候选框检测、人工审核裁图和 PDF 区域补图，在 3 篇真实文献上复现 10 张子图处理。</li>
-          </ul>
-          <div class="evidence-flow" aria-label="文献处理过程"><span>文献与样本</span><span aria-hidden="true">→</span><span>结构化抽取</span><span aria-hidden="true">→</span><span>证据与身份校验</span><span aria-hidden="true">→</span><span>文本 / 子图</span></div>
+          <p>将文献中的合成步骤、实验条件与组合图整理为可追溯的结构化数据，让每条事实、每张子图都能找到原始来源。</p>
+          <div class="research-streams">
+            <div class="research-stream"><h4>文本知识抽取</h4><p>用 Python 与 LLM 串联产物、合成、性能与形貌抽取；先锁定完整流程，再补齐实验条件，针对错误样本逐步改进。</p><dl class="research-results"><div><dt>合成路径准确率</dt><dd>34.2% <span aria-hidden="true">→</span><span class="sr-only">提升至</span> 97.5%</dd></div><div><dt>最终产物准确率</dt><dd>98.5%<small>400 篇人工复核</small></dd></div></dl></div>
+            <div class="research-stream"><h4>组合图拆分与索引</h4><p>清点文献图像，接入候选框检测、人工审核裁图与 PDF 区域补图，把复杂组合图拆成可定位、可复核的子图。</p><dl class="research-results"><div><dt>图像索引范围</dt><dd>2,689 个 DOI<small>32,614 个可读图片文件</small></dd></div><div><dt>真实文献复现</dt><dd>3 篇文献 · 10 张子图</dd></div></dl></div>
+          </div>
+          <div class="research-verification"><h4>事实与来源，一一对应</h4><p>以冻结样本注册表校验来源与缓存身份。100 篇冻结输入的离线重导出中，370 个样本、912 条事实无身份错配；另隔离 1 个待复核样本。</p></div>
           <ul class="tech-list" aria-label="科研文献项目技术"><li>Python</li><li>LLM</li><li>Structured Extraction</li><li>Image Processing</li><li>Evaluation</li></ul>
           <p class="project-footnote">香港中文大学（深圳） · 导师：张明建、李舜宁教授</p>
         </article>
@@ -119,7 +119,7 @@
           <article class="timeline-item"><p class="timeline-date">2025.08 — 2025.09</p><div><h3>冠宇电源有限公司</h3><p class="timeline-role">热仿真工程师 · 动力电池研发中心</p><p>独立搭建 COMSOL 动力电池热模型，与 Ansys Fluent 及实验数据对照，误差控制在 ±15%。</p></div></article>
           <article class="timeline-item"><p class="timeline-date">2025.03 — 2025.08</p><div><h3>美的集团股份有限公司</h3><p class="timeline-role">性能开发工程师 · 楼宇科技研发中心</p><p>基于内部 AI 平台独立搭建图像识别、信息流转、工单创建与归档分析流程，完成节点编排、字段映射及培训，累计覆盖 110+ 人次。</p><p>开展竞品拆解、核心零部件与成本分析，形成 40 页结构化报告。</p></div></article>
         </div>
-        <div class="skills"><h3 class="subsection-title">常用技术与方法</h3><dl><div><dt>开发</dt><dd>Python · JavaScript · Node.js · SQLite</dd></div><div><dt>Agent</dt><dd>LangGraph · Tool Calling · RAG · BM25 / 向量检索 · 长期记忆</dd></div><div><dt>研究</dt><dd>原文证据溯源 · 错误归因 · 对照评估 · Transformer / CNN</dd></div><div><dt>语言</dt><dd>IELTS 6.5</dd></div></dl></div>
+        <div class="skills"><h3 class="subsection-title">常用技术与方法</h3><dl><div><dt>开发</dt><dd>Python · JavaScript · Node.js · SQLite</dd></div><div><dt>Agent</dt><dd>LangGraph · Tool Calling · RAG · BM25 / 向量检索 · 长期记忆</dd></div><div><dt>研究</dt><dd>原文证据溯源 · 错误归因 · 对照评估 · Transformer / CNN</dd></div><div><dt>语言</dt><dd>IELTS 6.5</dd></div></dl><div class="coding-tools"><h4>常用 AI Coding 平台</h4><ul aria-label="常用 AI Coding 平台"><li><img src="images/coding-codex.svg" width="28" height="28" alt="" loading="lazy"><span>Codex</span></li><li><img src="images/coding-claude-code.svg" width="28" height="28" alt="" loading="lazy"><span>Claude Code</span></li><li><img src="images/coding-antigravity.svg" width="28" height="28" alt="" loading="lazy"><span>Antigravity</span></li></ul></div></div>
       </section>
 
       <section id="honors" aria-labelledby="honors-heading">
