@@ -81,6 +81,8 @@ section { padding: 68px 0; border-bottom: 1px solid var(--line); }
 .project-type { color: var(--accent); }
 .project-title { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .project-title h3 { font-size: 27px; line-height: 1.5; letter-spacing: -.5px; font-weight: 600; }
+.project-brand { display: inline-flex; align-items: center; gap: 12px; }
+.project-logo { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
 .repository-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); white-space: nowrap; font-size: 11px; }
 .project-subtitle { font-size: 13px; color: var(--muted); margin: 4px 0 18px; }
 .project > p:not(.project-subtitle):not(.result-note):not(.project-footnote) { max-width: 76ch; font-size: 14px; color: #344d41; }
@@ -139,6 +141,8 @@ figcaption { font-size: 11px; margin-top: 8px; color: var(--muted); }
 .timeline-date { font: 11px/1.8 var(--mono); color: var(--muted); padding-top: 5px; }
 .timeline-date span { font: 10px/1.8 "Microsoft YaHei", sans-serif; }
 .timeline-item h3 { font-size: 17px; font-weight: 600; }
+.education-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; }
+.school-logo { width: 156px; height: 48px; object-fit: contain; object-position: right center; flex-shrink: 0; mix-blend-mode: multiply; }
 .timeline-item .timeline-role { color: #315742; font-size: 13px; margin: 4px 0 7px; }
 .timeline-item div > p:not(.timeline-role) { color: var(--muted); font-size: 13px; margin-top: 5px; max-width: 72ch; }
 .skills { border-top: 1px solid var(--line); margin-top: 32px; }
@@ -240,6 +244,8 @@ footer > p { font-size: 14px; color: var(--muted); }
   .project-meta > span:last-child { font-size: 9px; }
   .project-title { flex-wrap: wrap; gap: 8px; }
   .project-title h3 { font-size: 23px; }
+  .project-brand { gap: 9px; }
+  .project-logo { width: 36px; height: 36px; }
   .repository-link { font-size: 10px; }
   .project-subtitle { font-size: 12px; margin-top: 8px; }
   .project > p:not(.project-subtitle):not(.result-note):not(.project-footnote), .project-points li { font-size: 13px; }
@@ -259,6 +265,8 @@ footer > p { font-size: 14px; color: var(--muted); }
   .publication-meta { font-size: 10px; }
   .publication > p:not(.publication-authors):not(.publication-venue) { font-size: 13px; }
   .timeline-item, .resume-section .timeline-item { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .education-header { gap: 6px 14px; }
+  .school-logo { width: 136px; height: 44px; }
   .honors-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .honor { grid-template-columns: 112px minmax(0, 1fr); gap: 0 20px; }
   .honor h3 { font-size: 15px; }
@@ -281,6 +289,8 @@ footer > p { font-size: 14px; color: var(--muted); }
   .name-cn { font-size: 18px; }
   .hero-profile { gap: 4px 17px; }
   .intro-links { gap: 16px; }
+  .education-header { align-items: flex-start; flex-direction: column; }
+  .school-logo { object-position: left center; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
