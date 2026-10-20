@@ -80,12 +80,12 @@ section { padding: 68px 0; border-bottom: 1px solid var(--line); }
 .project-meta { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font-size: 12px; margin-bottom: 17px; }
 .project-date { display: block; font: 11px/1.8 var(--mono); margin-top: 3px; }
 .project-type { color: var(--accent); }
-.project-partners { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.project-partners img { width: 48px; height: 36px; object-fit: contain; }
+.project-partners { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.project-partners img { width: 88px; height: 66px; object-fit: contain; }
 .project-title { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .project-title h3 { font-size: 27px; line-height: 1.5; letter-spacing: -.5px; font-weight: 600; }
 .project-brand { display: inline-flex; align-items: center; gap: 12px; }
-.project-logo { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; }
+.project-logo { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
 .repository-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); white-space: nowrap; font-size: 11px; }
 .project-subtitle { font-size: 13px; color: var(--muted); margin: 4px 0 18px; }
 .project > p:not(.project-subtitle):not(.result-note):not(.project-footnote) { max-width: 76ch; font-size: 14px; color: #344d41; }
@@ -156,21 +156,26 @@ figcaption { font-size: 11px; margin-top: 8px; color: var(--muted); }
 .timeline-date { font: 11px/1.8 var(--mono); color: var(--muted); padding-top: 5px; }
 .timeline-date span { font: 10px/1.8 "Microsoft YaHei", sans-serif; }
 .timeline-item h3 { font-size: 17px; font-weight: 600; }
-.education-header { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 16px; }
-.school-logo { order: -1; width: 56px; height: 42px; object-fit: contain; mix-blend-mode: multiply; }
-.education-header ~ p { padding-left: 72px; }
+.education-header { display: grid; grid-template-columns: 80px minmax(0, 1fr); align-items: center; gap: 16px; }
+.education-header h3 { font-size: 19px; }
+.school-logo { order: -1; width: 80px; height: 60px; object-fit: contain; mix-blend-mode: multiply; }
+.education-header ~ p { padding-left: 96px; }
 .timeline-item .timeline-role { color: #315742; font-size: 13px; margin: 4px 0 7px; }
 .timeline-item div > p:not(.timeline-role) { color: var(--muted); font-size: 13px; margin-top: 5px; max-width: 72ch; }
+.employer { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 24px; align-items: start; }
+.employer-logo { width: 128px; height: 64px; object-fit: contain; }
+.employer h3 { font-size: 19px; }
+#experience .timeline-item { margin-bottom: 38px; }
 .skills { border-top: 1px solid var(--line); margin-top: 32px; }
 .skills dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 40px; }
 .skills dl > div { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 20px; font-size: 13px; }
 .skills dt { font-weight: 600; }
 .skills dd { color: var(--muted); }
-.coding-tools { margin-top: 25px; padding-top: 21px; border-top: 1px solid var(--line); display: flex; align-items: center; flex-wrap: wrap; gap: 18px 38px; }
+.coding-tools { margin-top: 28px; padding-top: 25px; border-top: 1px solid var(--line); display: flex; align-items: center; flex-wrap: wrap; gap: 22px 40px; }
 .coding-tools h4 { font-size: 13px; font-weight: 600; }
-.coding-tools ul { display: flex; flex-wrap: wrap; gap: 18px 34px; }
-.coding-tools li { display: inline-flex; align-items: center; gap: 10px; font: 13px/1.8 var(--mono); }
-.coding-tools img { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+.coding-tools ul { display: flex; flex-wrap: wrap; gap: 22px 40px; }
+.coding-tools li { display: inline-flex; align-items: center; gap: 14px; font: 14px/1.8 var(--mono); }
+.coding-tools img { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
 .honors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 30px; }
 .honor { display: grid; grid-template-columns: 100px minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 0 16px; align-items: start; }
 .certificate-frame { grid-row: 1 / 4; aspect-ratio: 3 / 4; padding: 7px; background: #e6eee5; }
@@ -267,10 +272,12 @@ footer > p { font-size: 14px; color: var(--muted); }
   .project { padding: 22px 18px; }
   .project-meta { font-size: 10px; gap: 10px; }
   .project-date { font-size: 9px; }
+  .project-partners { gap: 8px; }
+  .project-partners img { width: 56px; height: 42px; }
   .project-title { flex-wrap: wrap; gap: 8px; }
   .project-title h3 { font-size: 23px; }
   .project-brand { gap: 9px; }
-  .project-logo { width: 32px; height: 32px; }
+  .project-logo { width: 36px; height: 36px; }
   .repository-link { font-size: 10px; }
   .project-subtitle { font-size: 12px; margin-top: 8px; }
   .project > p:not(.project-subtitle):not(.result-note):not(.project-footnote), .project-points li { font-size: 13px; }
@@ -294,10 +301,17 @@ footer > p { font-size: 14px; color: var(--muted); }
   .coding-tools { align-items: flex-start; gap: 17px; }
   .coding-tools ul { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; gap: 16px; }
   .coding-tools li { font-size: 12px; }
+  .coding-tools img { width: 32px; height: 32px; }
   .publication h3 { font-size: 17px; line-height: 1.75; letter-spacing: -.5px; }
   .publication-meta { font-size: 10px; }
   .publication > p:not(.publication-authors):not(.publication-venue) { font-size: 13px; }
   .timeline-item, .resume-section .timeline-item { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .education-header { grid-template-columns: 56px minmax(0, 1fr); }
+  .education-header h3, .employer h3 { font-size: 17px; }
+  .school-logo { width: 56px; height: 42px; }
+  .education-header ~ p { padding-left: 72px; }
+  .employer { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .employer-logo { width: 112px; height: 44px; object-position: left center; }
   .honors-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .honor { grid-template-columns: 112px minmax(0, 1fr); gap: 0 20px; }
   .honor h3 { font-size: 15px; }

@@ -1,5 +1,7 @@
 # Brand asset sources
 
+- `company-cosmx.png`: COSMX official website footer wordmark, https://www.cosmx.com/statics/css/guanyu/assets/imgs/logo2.png (https://www.cosmx.com/html/about/about/).
+- `company-midea.png`: Midea Group official website header wordmark, https://cn-res.midea.com/content/dam/mideacn-aem/test/logo-1x.png (https://www.midea.com.cn/zh).
 - `school-pkusz.webp`: crest cropped from the Peking University Shenzhen Graduate School official website wordmark, https://www.pkusz.edu.cn/images22/logo2.png (https://www.pkusz.edu.cn/). Cropped to the original crest, then placed on the same 256 × 192 transparent canvas as the other school marks.
 - `coding-codex.svg`, `coding-claude-code.svg`, `coding-antigravity.svg`: `@lobehub/icons-static-svg` 1.95.1, https://github.com/lobehub/lobe-icons. Original filenames: `codex.svg`, `claudecode-color.svg`, `antigravity-color.svg`. Unmodified SVG files.
 
