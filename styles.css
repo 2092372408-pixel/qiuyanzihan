@@ -141,8 +141,9 @@ figcaption { font-size: 11px; margin-top: 8px; color: var(--muted); }
 .timeline-date { font: 11px/1.8 var(--mono); color: var(--muted); padding-top: 5px; }
 .timeline-date span { font: 10px/1.8 "Microsoft YaHei", sans-serif; }
 .timeline-item h3 { font-size: 17px; font-weight: 600; }
-.education-header { display: grid; grid-template-columns: minmax(0, 1fr) 56px; align-items: center; gap: 16px; }
-.school-logo { width: 56px; height: 42px; object-fit: contain; mix-blend-mode: multiply; }
+.education-header { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 16px; }
+.school-logo { order: -1; width: 56px; height: 42px; object-fit: contain; mix-blend-mode: multiply; }
+.education-header ~ p { padding-left: 72px; }
 .timeline-item .timeline-role { color: #315742; font-size: 13px; margin: 4px 0 7px; }
 .timeline-item div > p:not(.timeline-role) { color: var(--muted); font-size: 13px; margin-top: 5px; max-width: 72ch; }
 .skills { border-top: 1px solid var(--line); margin-top: 32px; }
