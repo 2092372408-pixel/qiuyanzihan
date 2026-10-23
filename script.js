@@ -21,6 +21,15 @@ updateNavigation();
 
 const directionLines = [...document.querySelectorAll('.direction-line')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const accuracyChart = document.querySelector('.accuracy-chart');
+if (accuracyChart && !reducedMotion) {
+  const chartObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    accuracyChart.classList.add('is-animated');
+    chartObserver.disconnect();
+  }, { threshold: 0.35 });
+  chartObserver.observe(accuracyChart);
+}
 let introSeen = true;
 try {
   introSeen = localStorage.getItem('portfolio-direction-seen') === '1';
