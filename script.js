@@ -47,15 +47,27 @@ for (const demoImage of document.querySelectorAll('.demo-image')) {
   const demoToggle = demoImage.closest('figure').querySelector('.demo-toggle');
   const poster = demoImage.getAttribute('src');
   let playing = false;
-  function setDemoPlayback(next) {
-    playing = next;
-    demoImage.src = playing ? demoImage.dataset.animation : poster;
-    demoToggle.textContent = playing ? '暂停演示' : '播放演示';
-    demoToggle.setAttribute('aria-pressed', String(playing));
+  let playbackEnabled = !reducedMotion;
+  let inView = false;
+  function updatePlayback() {
+    const next = playbackEnabled && inView;
+    if (next !== playing) {
+      playing = next;
+      demoImage.src = playing ? demoImage.dataset.animation : poster;
+    }
+    demoToggle.textContent = playbackEnabled ? '暂停演示' : '播放演示';
+    demoToggle.setAttribute('aria-pressed', String(playbackEnabled));
   }
   demoToggle.hidden = false;
-  setDemoPlayback(!reducedMotion);
-  demoToggle.addEventListener('click', () => setDemoPlayback(!playing));
+  updatePlayback();
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    updatePlayback();
+  }, { threshold: 0.2 }).observe(demoImage);
+  demoToggle.addEventListener('click', () => {
+    playbackEnabled = !playbackEnabled;
+    updatePlayback();
+  });
 }
 
 const demoTrack = document.querySelector('.feature-demos');
