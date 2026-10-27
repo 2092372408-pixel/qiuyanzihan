@@ -1,14 +1,7 @@
 const navigation = [...document.querySelectorAll('.section-nav a')];
 const sections = navigation.map(link => document.querySelector(link.hash));
 
-const siteHeader = document.getElementById('site-header');
-
 function updateNavigation() {
-  const scrollY = window.scrollY || window.pageYOffset;
-  if (siteHeader) {
-    if (scrollY > 180) siteHeader.classList.add('is-scrolled');
-    else siteHeader.classList.remove('is-scrolled');
-  }
 
   let current = null;
   for (const section of sections) {
