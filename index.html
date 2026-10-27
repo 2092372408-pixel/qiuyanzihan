@@ -96,12 +96,10 @@
           <figure class="architecture-figure-prominent">
             <div class="figure-prominent-header">
               <span class="prominent-badge"><svg class="icon small" aria-hidden="true"><use href="#icon-workflow"/></svg> 系统级工程架构</span>
-              <span class="prominent-hint">点击可放大查看高清架构图</span>
             </div>
-            <button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图">
+            <div class="architecture-frame">
               <img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy">
-              <span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span>
-            </button>
+            </div>
             <figcaption>系统架构 · 教学角色编排、能力模块与学习数据流（HTTP/SSE + LangGraph + Tool Calling + MCP）</figcaption>
           </figure>
           <ul class="tech-list" aria-label="EduPilot 技术栈"><li>LangGraph</li><li>ReAct</li><li>Tool Calling</li><li>MCP</li><li>RAG</li><li>Node.js</li><li>SQLite</li><li>Python</li></ul>
@@ -192,45 +190,26 @@
       </section>
 
       <section id="honors" aria-labelledby="honors-heading">
-        <div class="section-heading"><p class="eyebrow">Honors</p><h2 id="honors-heading">奖项与荣誉</h2><p>本科阶段的学习与研究记录。点击证书可查看原图。</p></div>
+        <div class="section-heading"><p class="eyebrow">Honors</p><h2 id="honors-heading">奖项与荣誉</h2><p>本科阶段的学习与研究记录。</p></div>
         <div class="honors-grid">
-          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-deans-list.webp" data-caption="院长嘉许名单 · Dean’s List · 2026/04 学期" aria-label="放大查看院长嘉许名单证书"><img src="images/award-deans-list.webp" width="1437" height="2048" alt="厦门大学马来西亚分校院长嘉许名单证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>院长嘉许名单</h3><p>Dean’s List<br>厦门大学马来西亚分校</p></article>
-          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-fyp-ii.webp" data-caption="毕业设计优秀奖 · Merit Final Year Project II Award · 2026/04 学期" aria-label="放大查看毕业设计第二阶段优秀奖证书"><img src="images/award-fyp-ii.webp" width="1479" height="2048" alt="厦门大学马来西亚分校毕业设计第二阶段优秀奖证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026/04 学期</p><h3>毕业设计优秀奖 · II</h3><p>Merit Final Year Project II Award<br>离子凝胶电解质与负极兼容性研究</p></article>
-          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/cert2_new.jpg" data-caption="上海交通大学 · Best Group Presentation Award · Distinction · 2026.03—06 课程" aria-label="放大查看上海交通大学最佳小组展示奖证书"><img src="images/cert2_new.jpg" width="1024" height="722" alt="上海交通大学净零碳燃料课程最佳小组展示奖 Distinction 证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2026.03 — 06 课程</p><h3>最佳小组展示奖</h3><p>Distinction · 项目组长<br>上海交通大学 Net Zero-Carbon Fuels</p></article>
-          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/cert.jpg" data-caption="毕业设计优秀奖 · Merit Final Year Project I Award · 2025/09 学期" aria-label="放大查看毕业设计第一阶段优秀奖证书"><img src="images/cert.jpg" alt="厦门大学马来西亚分校毕业设计第一阶段优秀奖证书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2025/09 学期</p><h3>毕业设计优秀奖 · I</h3><p>Merit Final Year Project I Award<br>厦门大学马来西亚分校</p></article>
-          <article class="honor"><button class="image-trigger certificate-frame" type="button" data-gallery="honors" data-image="images/award-scholarship-2023.webp" data-caption="2022—2023 学年三等奖学金 · Distinction Award · 2023.08.14" aria-label="放大查看学年三等奖学金通知"><img src="images/award-scholarship-2023.webp" width="1698" height="2400" alt="厦门大学马来西亚分校 2023 年 Distinction Award 奖学金通知书" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><p class="honor-date">2022 — 2023 学年</p><h3>学年三等奖学金</h3><p>Distinction Award<br>厦门大学马来西亚分校</p></article>
+          <article class="honor"><div class="certificate-frame"><img src="images/award-deans-list.webp" width="1437" height="2048" alt="厦门大学马来西亚分校院长嘉许名单证书" loading="lazy"></div><p class="honor-date">2026/04 学期</p><h3>院长嘉许名单</h3><p>Dean’s List<br>厦门大学马来西亚分校</p></article>
+          <article class="honor"><div class="certificate-frame"><img src="images/award-fyp-ii.webp" width="1479" height="2048" alt="厦门大学马来西亚分校毕业设计第二阶段优秀奖证书" loading="lazy"></div><p class="honor-date">2026/04 学期</p><h3>毕业设计优秀奖 · II</h3><p>Merit Final Year Project II Award<br>离子凝胶电解质与负极兼容性研究</p></article>
+          <article class="honor"><div class="certificate-frame"><img src="images/cert2_new.jpg" width="1024" height="722" alt="上海交通大学净零碳燃料课程最佳小组展示奖 Distinction 证书" loading="lazy"></div><p class="honor-date">2026.03 — 06 课程</p><h3>最佳小组展示奖</h3><p>Distinction · 项目组长<br>上海交通大学 Net Zero-Carbon Fuels</p></article>
+          <article class="honor"><div class="certificate-frame"><img src="images/cert.jpg" alt="厦门大学马来西亚分校毕业设计第一阶段优秀奖证书" loading="lazy"></div><p class="honor-date">2025/09 学期</p><h3>毕业设计优秀奖 · I</h3><p>Merit Final Year Project I Award<br>厦门大学马来西亚分校</p></article>
+          <article class="honor"><div class="certificate-frame"><img src="images/award-scholarship-2023.webp" width="1698" height="2400" alt="厦门大学马来西亚分校 2023 年 Distinction Award 奖学金通知书" loading="lazy"></div><p class="honor-date">2022 — 2023 学年</p><h3>学年三等奖学金</h3><p>Distinction Award<br>厦门大学马来西亚分校</p></article>
         </div>
       </section>
 
       <section id="more" aria-labelledby="more-heading">
         <div class="section-heading"><p class="eyebrow">Beyond the screen</p><h2 id="more-heading">更多研究与创作</h2><p>材料实验、工程验证，以及工作之外的动手实践。</p></div>
-        <details class="archive"><summary><span><strong>离子凝胶电解质与负极兼容性</strong><span class="archive-meta">2025.09 — 2026.07 · 材料实验 / 毕业设计</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>围绕 UV 固化 AAm / DMAAm–TFSI 离子凝胶，比较盐浓度、固化时间、添加剂和厚度对界面与传输性能的影响；完成 EIS、恒流充放电与 CR2032 半电池测试，评估 Graphite、MCMB、Hard Carbon 与 Silicon 负极适配性。</p><p>毕业设计第二阶段题目：<em>Optimization and Anode Compatibility Evaluation of UV-Cured AAm/DMAAm Ionogel Electrolytes for Lithium-Ion Half-Cells</em>。获 Merit Final Year Project II Award。</p><p class="project-footnote">厦门大学马来西亚分校 · 导师：范能平教授</p><div class="gallery two-up"><figure><button class="image-trigger photo-frame" type="button" data-gallery="ionogel" data-image="images/ionogel-test.webp" data-caption="离子凝胶 · 实验装置" aria-label="放大查看离子凝胶实验装置"><img src="images/ionogel-test.webp" width="1279" height="1706" alt="离子凝胶实验装置" loading="lazy"></button><figcaption>实验装置</figcaption></figure><figure><button class="image-trigger photo-frame" type="button" data-gallery="ionogel" data-image="images/ionogel-cycling.webp" data-caption="离子凝胶 · 电池循环测试" aria-label="放大查看电池循环测试记录"><img src="images/ionogel-cycling.webp" width="1440" height="810" alt="离子凝胶电池循环测试记录" loading="lazy"></button><figcaption>循环测试记录</figcaption></figure></div></div></details>
-        <details class="archive"><summary><span><strong>可定制投影灯</strong><span class="archive-meta">2025.09 — 2026.01 · AI 辅助设计 / 3D 打印</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>独立提出可替换图案模块的投影灯设计，基于开源结构模板改造灯体；结合腾讯混元 3D 与 Shapr3D 完成建模和尺寸适配，使用 Bambu Lab X1 Carbon 打印、装配并验证投影效果。</p><div class="gallery two-up"><figure><button class="image-trigger photo-frame" type="button" data-gallery="maker" data-image="images/maker-lamp.webp" data-caption="可定制投影灯 · 成品与投影效果" aria-label="放大查看投影灯成品"><img src="images/maker-lamp.webp" width="960" height="1280" alt="3D 打印投影灯成品" loading="lazy"></button><figcaption>成品与投影</figcaption></figure><figure><button class="image-trigger photo-frame" type="button" data-gallery="maker" data-image="images/maker-process.webp" data-caption="可定制投影灯 · Bambu Lab 打印过程" aria-label="放大查看 3D 打印过程"><img src="images/maker-process.webp" width="1600" height="1200" alt="Bambu Lab 3D 打印过程" loading="lazy"></button><figcaption>打印与装配</figcaption></figure></div></div></details>
+        <details class="archive"><summary><span><strong>离子凝胶电解质与负极兼容性</strong><span class="archive-meta">2025.09 — 2026.07 · 材料实验 / 毕业设计</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>围绕 UV 固化 AAm / DMAAm–TFSI 离子凝胶，比较盐浓度、固化时间、添加剂和厚度对界面与传输性能的影响；完成 EIS、恒流充放电与 CR2032 半电池测试，评估 Graphite、MCMB、Hard Carbon 与 Silicon 负极适配性。</p><p>毕业设计第二阶段题目：<em>Optimization and Anode Compatibility Evaluation of UV-Cured AAm/DMAAm Ionogel Electrolytes for Lithium-Ion Half-Cells</em>。获 Merit Final Year Project II Award。</p><p class="project-footnote">厦门大学马来西亚分校 · 导师：范能平教授</p><div class="gallery two-up"><figure><div class="photo-frame"><img src="images/ionogel-test.webp" width="1279" height="1706" alt="离子凝胶实验装置" loading="lazy"></div><figcaption>实验装置</figcaption></figure><figure><div class="photo-frame"><img src="images/ionogel-cycling.webp" width="1440" height="810" alt="离子凝胶电池循环测试记录" loading="lazy"></div><figcaption>循环测试记录</figcaption></figure></div></div></details>
+        <details class="archive"><summary><span><strong>可定制投影灯</strong><span class="archive-meta">2025.09 — 2026.01 · AI 辅助设计 / 3D 打印</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>独立提出可替换图案模块的投影灯设计，基于开源结构模板改造灯体；结合腾讯混元 3D 与 Shapr3D 完成建模和尺寸适配，使用 Bambu Lab X1 Carbon 打印、装配并验证投影效果。</p><div class="gallery two-up"><figure><div class="photo-frame"><img src="images/maker-lamp.webp" width="960" height="1280" alt="3D 打印投影灯成品" loading="lazy"></div><figcaption>成品与投影</figcaption></figure><figure><div class="photo-frame"><img src="images/maker-process.webp" width="1600" height="1200" alt="Bambu Lab 3D 打印过程" loading="lazy"></div><figcaption>打印与装配</figcaption></figure></div></div></details>
         <details class="archive"><summary><span><strong>热工参数测量与温度动态校正</strong><span class="archive-meta">2024.08 起 · 核心成员 / 第二作者</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>搭建 T 型热电偶与红外测温联合平台，完成 20+ 组实验与 10 万+ 数据清洗分析；参与动态校正模型与实验框架设计，测温精度提升 32%。</p><p class="project-footnote">厦门大学与福建中烟集团 · 导师：张尧立教授</p></div></details>
       </section>
 
       <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email copy-trigger" href="mailto:yanzihanqiu@link.cuhk.edu.cn" data-copy="yanzihanqiu@link.cuhk.edu.cn" data-tip="邮箱" title="点击发邮件或复制邮箱">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 David · 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
     </main>
   </div>
-  <dialog class="lightbox" aria-labelledby="lightbox-caption">
-    <div class="lightbox-toolbar">
-      <span id="lightbox-count"></span>
-      <div class="lightbox-actions">
-        <a id="lightbox-raw" class="lightbox-raw-btn" href="#" target="_blank" rel="noopener noreferrer">
-          查看超清原图 <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg>
-        </a>
-        <button class="lightbox-close" type="button" aria-label="关闭图片查看器">关闭 <span aria-hidden="true">×</span></button>
-      </div>
-    </div>
-    <div class="lightbox-stage">
-      <img class="lightbox-image" alt="">
-    </div>
-    <div class="lightbox-bottom">
-      <button class="lightbox-prev" type="button" aria-label="上一张图片">← 上一张</button>
-      <p id="lightbox-caption" aria-live="polite"></p>
-      <button class="lightbox-next" type="button" aria-label="下一张图片">下一张 →</button>
-    </div>
-  </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true"></div>
 </body>
 </html>
