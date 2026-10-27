@@ -6,11 +6,16 @@
   <meta name="description" content="丘严子涵 David，香港中文大学（深圳）人工智能 MPhil。独立开发 EduPilot 教学 Agent，关注工具调用、RAG、长期记忆与可验证的 AI 应用。">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="theme-color" content="#f3f8f5">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="David 丘严子涵 · AI 应用与 Agent 开发">
+  <meta property="og:description" content="香港中文大学（深圳）人工智能 MPhil。独立开发 EduPilot 教学 Agent，关注工具调用、RAG、长期记忆与可验证的 AI 应用。">
+  <meta property="og:url" content="https://2092372408-pixel.github.io/qiuyanzihan/">
+  <meta property="og:image" content="https://2092372408-pixel.github.io/qiuyanzihan/images/portrait.webp">
   <title>David 丘严子涵 · AI 应用与 Agent 开发</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261023-visual-refresh">
-  <script src="script.js?v=20261023-visual-refresh" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261027-polish">
+  <script src="script.js?v=20261027-polish" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -26,18 +31,26 @@
     <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></symbol>
     <symbol id="icon-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4M10 10h4v4h-4Z"/></symbol>
     <symbol id="icon-check" viewBox="0 0 24 24"><path d="m8 12 3 3 5-6M12 3l8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6Z"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
   </svg>
 
   <div class="site-shell">
-    <header class="profile">
-      <nav class="section-nav" aria-label="页面导航">
-        <a href="#education">教育背景</a>
-        <a href="#work">AI 项目</a>
-        <a href="#publication">论文研究</a>
-        <a href="#experience">实习经历</a>
-        <a href="#honors">奖项荣誉</a>
-        <a href="#more">更多创作</a>
-      </nav>
+    <header class="profile" id="site-header">
+      <div class="nav-container">
+        <a href="#about" class="nav-brand" aria-label="返回个人顶部介绍">
+          <img src="images/portrait.webp" width="28" height="28" alt="" class="nav-avatar">
+          <span class="nav-name">丘严子涵</span>
+          <span class="nav-sub">AI Agent</span>
+        </a>
+        <nav class="section-nav" aria-label="页面导航">
+          <a href="#education">教育背景</a>
+          <a href="#work">AI 项目</a>
+          <a href="#publication">论文研究</a>
+          <a href="#experience">实习经历</a>
+          <a href="#honors">奖项荣誉</a>
+          <a href="#more">更多创作</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
@@ -47,13 +60,17 @@
           <p class="identity-line"><span class="name-cn">丘严子涵</span><span class="name-en" lang="en">David</span></p>
           <p class="intro-copy">香港中文大学（深圳）人工智能研究型硕士，本科毕业于厦门大学。独立开发 EduPilot 教学 Agent，把教材学习、在线编程、判题与反馈连接成完整的学习流程。</p>
           <p class="intro-copy secondary">关注 Agent 如何可靠地完成任务：工作流与工具边界、检索增强、长期记忆，以及失败后的状态处理。也在科研场景中探索模型选型与可追溯的信息抽取。</p>
-          <div class="intro-links"><a class="primary-button" href="#work">浏览项目 <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a><a class="text-link" href="mailto:yanzihanqiu@link.cuhk.edu.cn"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>邮件联系</a></div>
+          <div class="intro-links">
+            <a class="primary-button" href="#work">浏览项目 <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a>
+            <button type="button" class="text-link copy-trigger" data-copy="yanzihanqiu@link.cuhk.edu.cn" data-tip="邮箱" title="点击复制邮箱"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg><span>邮件联系</span><span class="copy-badge">复制</span></button>
+          </div>
           <p class="availability"><span></span>寻找 AI 应用 / Agent 研发实习</p>
         </div>
         <aside class="hero-profile" aria-label="个人肖像与所在地">
           <div class="portrait-wrap"><img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 600px) 144px, 224px" width="544" height="680" alt="David 丘严子涵的个人肖像" fetchpriority="high" decoding="sync"></div>
           <div class="portrait-caption"><span>Shenzhen, CN</span></div>
-          <a class="profile-phone" href="tel:15160010090">151 6001 0090</a>
+          <button type="button" class="profile-phone copy-trigger" data-copy="15160010090" data-tip="电话号码" title="点击复制电话号码"><span>151 6001 0090</span><span class="copy-badge">复制</span></button>
         </aside>
       </section>
 
@@ -83,9 +100,20 @@
             <div><h4>记忆维护调用 <span>32 → 12</span></h4><p>固定 60 轮合成对话中减少 62.5%；统计范围为记忆维护模型调用。</p></div>
             <div><h4>让学习反馈回到下一次练习</h4><ol class="learning-loop" aria-label="学习反馈流程"><li>编写代码</li><li>运行判题</li><li>反馈与再练</li></ol><p>依据服务端核验结果更新错题与知识点状态。</p></div>
           </div>
+          <figure class="architecture-figure-prominent">
+            <div class="figure-prominent-header">
+              <span class="prominent-badge"><svg class="icon small" aria-hidden="true"><use href="#icon-workflow"/></svg> 系统级工程架构</span>
+              <span class="prominent-hint">点击可放大查看高清架构图</span>
+            </div>
+            <button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图">
+              <img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy">
+              <span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span>
+            </button>
+            <figcaption>系统架构 · 教学角色编排、能力模块与学习数据流（HTTP/SSE + LangGraph + Tool Calling + MCP）</figcaption>
+          </figure>
           <ul class="tech-list" aria-label="EduPilot 技术栈"><li>LangGraph</li><li>ReAct</li><li>Tool Calling</li><li>MCP</li><li>RAG</li><li>Node.js</li><li>SQLite</li><li>Python</li></ul>
           <details class="engineering-details">
-            <summary><span>工程实现与系统架构<small>工具边界、失败处理与验证方法</small></span><span class="disclosure-icon" aria-hidden="true">+</span></summary>
+            <summary><span>工程细节与系统实现<small>工具边界、失败隔离、状态恢复与评测范围</small></span><span class="disclosure-icon" aria-hidden="true">+</span></summary>
             <div class="engineering-grid">
               <div><h4>工作流与可信判分</h4><p>规则路由分配通用、协调、预习、学习、复习任务，角色内再决定工具调用。普通答疑与正式测验隔离，仅依据服务端核验结果更新掌握度与错题。</p></div>
               <div><h4>MCP 与工具边界</h4><p>外部 MCP 工具与教材查询、判题统一管理；通过参数 Schema、角色白名单、联网授权与单轮调用上限约束执行，异常以可识别结果返回。</p></div>
@@ -93,7 +121,6 @@
               <div><h4>记忆与教材可追溯</h4><p>长期事实保留原文引文、位置、哈希及来源会话，更正时保留历史；教材生成经结构校验与原文复核后发布快照，失败保留旧版。</p></div>
             </div>
             <p class="verification-scope">工程验证覆盖功能行为、HTTP/SSE 与 MCP stdio 链路，关注工具调用、请求隔离与状态恢复。</p>
-            <figure class="architecture-figure"><button class="image-trigger architecture-frame" type="button" data-gallery="edupilot" data-image="images/edupilot-architecture.svg" data-caption="EduPilot · 按当前项目模块整理的系统架构" aria-label="放大查看 EduPilot 项目架构图"><img src="images/edupilot-architecture.svg" width="1120" height="680" alt="EduPilot 架构：浏览器经 HTTP 与 SSE 连接 LangGraph 教学角色路由；编排层调用教材检索、Python 执行判题和 MCP 工具，连接兼容模型接口与 SQLite 等学习数据存储。" loading="lazy"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#icon-expand"/></svg></span></button><figcaption>系统架构 · 教学角色编排、能力模块与学习数据</figcaption></figure>
           </details>
           <div id="edupilot-features" class="feature-gallery">
             <div class="feature-gallery-heading"><div><h4>EduPilot 功能实录</h4><p>真实 API 实录（流程节选），左右滑动查看。</p></div><div class="gallery-navigation" hidden><button class="demo-previous" type="button" aria-label="上一个功能演示" aria-controls="edupilot-demos">←</button><span class="demo-position" aria-live="polite">1 / 5</span><button class="demo-next" type="button" aria-label="下一个功能演示" aria-controls="edupilot-demos">→</button></div></div>
@@ -189,7 +216,7 @@
         <details class="archive"><summary><span><strong>热工参数测量与温度动态校正</strong><span class="archive-meta">2024.08 起 · 核心成员 / 第二作者</span></span><span class="disclosure-icon" aria-hidden="true">+</span></summary><div class="archive-content"><p>搭建 T 型热电偶与红外测温联合平台，完成 20+ 组实验与 10 万+ 数据清洗分析；参与动态校正模型与实验框架设计，测温精度提升 32%。</p><p class="project-footnote">厦门大学与福建中烟集团 · 导师：张尧立教授</p></div></details>
       </section>
 
-      <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email" href="mailto:yanzihanqiu@link.cuhk.edu.cn">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 David · 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
+      <footer><p>欢迎交流 AI 应用、Agent 开发和实习机会。</p><a class="footer-email copy-trigger" href="mailto:yanzihanqiu@link.cuhk.edu.cn" data-copy="yanzihanqiu@link.cuhk.edu.cn" data-tip="邮箱" title="点击发邮件或复制邮箱">yanzihanqiu@link.cuhk.edu.cn <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a><div class="footer-bottom"><span>© 2026 David · 丘严子涵</span><a href="#about">回到顶部 ↑</a></div></footer>
     </main>
   </div>
   <dialog class="lightbox" aria-labelledby="lightbox-caption">
@@ -197,5 +224,6 @@
     <img class="lightbox-image" alt="">
     <div class="lightbox-bottom"><button class="lightbox-prev" type="button" aria-label="上一张图片">←</button><p id="lightbox-caption" aria-live="polite"></p><button class="lightbox-next" type="button" aria-label="下一张图片">→</button></div>
   </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true"></div>
 </body>
 </html>

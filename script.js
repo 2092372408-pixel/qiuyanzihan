@@ -1,7 +1,15 @@
 const navigation = [...document.querySelectorAll('.section-nav a')];
 const sections = navigation.map(link => document.querySelector(link.hash));
 
+const siteHeader = document.getElementById('site-header');
+
 function updateNavigation() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  if (siteHeader) {
+    if (scrollY > 180) siteHeader.classList.add('is-scrolled');
+    else siteHeader.classList.remove('is-scrolled');
+  }
+
   let current = null;
   for (const section of sections) {
     if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section;
@@ -150,3 +158,45 @@ lightbox.addEventListener('click', event => {
   const bounds = lightbox.getBoundingClientRect();
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) lightbox.close();
 });
+
+const toast = document.getElementById('toast');
+let toastTimer = null;
+function showToast(message) {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add('is-active');
+  toast.setAttribute('aria-hidden', 'false');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('is-active');
+    toast.setAttribute('aria-hidden', 'true');
+  }, 2400);
+}
+
+document.querySelectorAll('.copy-trigger').forEach(trigger => {
+  trigger.addEventListener('click', async (event) => {
+    const text = trigger.dataset.copy;
+    const tip = trigger.dataset.tip || '内容';
+    if (!text) return;
+    event.preventDefault();
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand('copy');
+        textarea.remove();
+      }
+      showToast(`已复制${tip}到剪切板：${text}`);
+    } catch {
+      showToast(`已选择：${text}`);
+    }
+  });
+});
+
