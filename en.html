@@ -26,9 +26,9 @@
   <link rel="alternate" hreflang="x-default" href="https://qiuyanzihan.space/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261124-3">
-  <script src="script.js?v=20261124-3" defer></script>
-  <script src="portfolio.js?v=20261124-3" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261124-5">
+  <script src="script.js?v=20261124-5" defer></script>
+  <script src="portfolio.js?v=20261124-5" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,6 +75,7 @@
 
   <div class="site-shell">
     <header class="profile">
+      <a class="brand-mark" href="#about" aria-label="Back to top">David Qiu</a>
       <nav class="section-nav" aria-label="Page navigation">
         <a href="#education">Education</a>
         <a href="#work">AI Projects</a>
@@ -85,11 +86,13 @@
         <a href="#contact">Contact</a>
       </nav>
       <a class="language-link" href="./" lang="zh-CN" hreflang="zh-CN" aria-label="切换到简体中文">中文</a>
+      <span class="scroll-progress" aria-hidden="true"></span>
     </header>
 
     <main id="main">
       <section id="about" class="intro-section" aria-labelledby="intro-heading">
         <div class="hero-copy">
+          <p class="hero-kicker">CUHK-Shenzhen · AI MPhil</p>
           <h1 id="intro-heading" class="direction-heading" aria-label="AI Applications / Agent Engineering"><span class="direction-line" aria-hidden="true">AI Applications /</span><span class="direction-line" aria-hidden="true">Agent Engineering</span></h1>
           <p class="identity-line"><span class="name-cn">Yanzihan Qiu</span><span class="name-en" lang="en">David</span></p>
           <p class="intro-copy">AI MPhil student at The Chinese University of Hong Kong, Shenzhen, and a Xiamen University graduate. I independently built EduPilot, a teaching agent that connects textbook study, online coding, automated grading, and feedback.</p>
@@ -102,8 +105,10 @@
           <p class="availability"><span></span>Seeking an AI applications or Agent engineering internship</p>
         </div>
         <aside class="hero-profile" aria-label="Portrait and location">
-          <div class="portrait-wrap"><img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 600px) 144px, 224px" width="544" height="680" alt="Portrait of David Qiu" fetchpriority="high" decoding="sync"></div>
-          <div class="portrait-caption"><span>Shenzhen, CN</span></div>
+          <div class="portrait-card">
+            <div class="portrait-wrap"><img class="portrait" src="images/portrait.webp" srcset="images/portrait.webp 544w, images/portrait@2x.webp 800w" sizes="(max-width: 600px) 144px, 224px" width="544" height="680" alt="Portrait of David Qiu" fetchpriority="high" decoding="sync"></div>
+            <div class="portrait-caption"><span>Shenzhen, CN</span><span>2026 · MPhil</span></div>
+          </div>
         </aside>
       </section>
 
@@ -290,10 +295,23 @@
   <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true"></div>
 
   <aside id="portfolio-assistant" hidden>
+    <div class="assistant-backdrop" hidden></div>
+    <div class="assistant-guide-card" role="region" aria-label="Quick tour" hidden>
+      <div class="guide-card-top">
+        <p class="guide-card-title">Welcome to David’s portfolio</p>
+        <button type="button" class="guide-card-dismiss" aria-label="Dismiss guide"><svg class="icon small" aria-hidden="true"><use href="#icon-close"/></svg></button>
+      </div>
+      <p class="guide-card-desc">Jump straight to a highlight, or click me anytime to ask about his work.</p>
+      <div class="guide-card-actions">
+        <button type="button" class="guide-jump-btn" data-jump="#edupilot">Explore EduPilot</button>
+        <button type="button" class="guide-jump-btn" data-jump="#literature">Research &amp; VLM</button>
+        <button type="button" class="guide-open-btn">Open guide →</button>
+      </div>
+    </div>
     <button class="assistant-launch" type="button" aria-label="Open portfolio guide" aria-expanded="false" aria-controls="assistant-panel">
-      <img class="assistant-mascot" src="images/assistant-sprout.webp" alt="" width="76" height="76" decoding="async">
+      <span class="assistant-context-tip" aria-hidden="true"></span>
+      <img class="assistant-mascot" src="images/assistant-sprout.webp" alt="" width="74" height="74" decoding="async">
     </button>
-    <p class="assistant-hint" hidden></p>
     <section id="assistant-panel" class="assistant-panel" aria-labelledby="assistant-title" hidden>
       <header class="assistant-top">
         <div class="assistant-brand">
@@ -319,7 +337,7 @@
           <input id="assistant-input" type="text" required maxlength="400" autocomplete="off">
           <button type="submit" class="assistant-send"><svg class="icon small" aria-hidden="true"><use href="#icon-send"/></svg></button>
         </form>
-        <p class="assistant-note">Generated from public portfolio content for reference.</p>
+        <p class="assistant-note">Compiled from public portfolio details for quick browsing.</p>
       </div>
     </section>
   </aside>

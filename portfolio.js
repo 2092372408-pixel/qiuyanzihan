@@ -3,22 +3,40 @@ const copy = english ? {
   launcher: 'Open portfolio guide', title: 'Portfolio Guide',
   greeting: 'What would you like to explore?',
   welcome: 'Pick a question below, or ask anything about David’s projects, research, and internships.',
-  hint: 'Ask about David’s projects',
   close: 'Close', reset: 'New conversation', topics: 'Topics',
   question: 'Ask a question', placeholder: 'Ask about EduPilot, research, or experience…', send: 'Send',
-  wait: 'Thinking', error: 'Temporarily unavailable. Please try again in a moment.',
+  wait: 'Looking it up', error: 'Temporarily unavailable. Please try again in a moment.',
   limit: seconds => `Too many requests — please wait ${seconds}s and try again. Your question is still in the box.`,
-  sources: 'Jump to', copyLabel: 'Copy answer', copiedLabel: 'Copied'
+  sources: 'Jump to', copyLabel: 'Copy answer', copiedLabel: 'Copied',
+  contextTips: {
+    about: 'Quick tour · Ask me anything',
+    education: 'Ask about his AI MPhil & focus',
+    work: 'Ask about EduPilot or VLM details',
+    publication: 'Ask about his first-author review',
+    experience: 'Ask about Midea & COSMX internships',
+    honors: 'Click any certificate to zoom in',
+    more: 'Ask about his hands-on builds',
+    contact: 'Leave a message or ask availability'
+  }
 } : {
-  launcher: '打开简历小助手', title: '简历导览',
+  launcher: '打开简历导览', title: '简历导览',
   greeting: '想了解哪部分经历？',
   welcome: '点选下方问题，或直接输入关于项目、科研与实习的提问。',
-  hint: '点我了解项目与经历',
   close: '关闭', reset: '开始新对话', topics: '按主题浏览',
   question: '你的问题', placeholder: '问问 EduPilot 架构、科研微调或实习经历…', send: '发送',
   wait: '正在查阅', error: '暂时无法响应，请稍后再试。',
   limit: seconds => `提问较频繁，请等 ${seconds} 秒后再试，问题已为你保留。`,
-  sources: '定位', copyLabel: '复制回答', copiedLabel: '已复制'
+  sources: '定位', copyLabel: '复制回答', copiedLabel: '已复制',
+  contextTips: {
+    about: '点我快速导览 · 随时提问',
+    education: '了解港中深 AI MPhil 研究方向',
+    work: '想看 EduPilot 或微调核心细节？',
+    publication: '了解第一作者综述论文要点',
+    experience: '聊聊美的 AI 流程与冠宇实习',
+    honors: '点击证书可放大查看原图',
+    more: '了解材料实验与 3D 打印创作',
+    contact: '欢迎在左侧留言或问到岗时间'
+  }
 };
 
 const topics = [
@@ -71,9 +89,6 @@ const sectionTitles = {
   contact: ['联系与留言', 'Contact']
 };
 
-/**
- * Safely renders inline formatting (**bold**, *italic*, `code`) via DOM nodes only.
- */
 function appendInlineFormatted(container, text) {
   const tokenRegex = /(\*\*[^*]+\*\*|`[^`]+`|\*[^*\n]+\*)/g;
   let lastIndex = 0;
@@ -146,9 +161,13 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   }
 
   const assistant = document.querySelector('#portfolio-assistant');
+  const backdrop = assistant.querySelector('.assistant-backdrop');
+  const guideCard = assistant.querySelector('.assistant-guide-card');
+  const guideDismiss = assistant.querySelector('.guide-card-dismiss');
+  const guideOpen = assistant.querySelector('.guide-open-btn');
+  const contextTip = assistant.querySelector('.assistant-context-tip');
   const launcher = assistant.querySelector('.assistant-launch');
   const panel = assistant.querySelector('.assistant-panel');
-  const hint = assistant.querySelector('.assistant-hint');
   const heading = panel.querySelector('h2');
   const greeting = panel.querySelector('.assistant-greeting');
   const closeButton = panel.querySelector('.assistant-close');
@@ -179,7 +198,13 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   input.placeholder = copy.placeholder;
   button.setAttribute('aria-label', copy.send);
   assistant.hidden = false;
-  if (hint) hint.textContent = copy.hint;
+
+  function updateContextTip(sectionId) {
+    if (!contextTip) return;
+    contextTip.textContent = copy.contextTips[sectionId] || copy.contextTips.about;
+  }
+  updateContextTip(document.documentElement.dataset.activeSection || 'about');
+  window.addEventListener('portfolio:section', (event) => updateContextTip(event.detail));
 
   function syncSendState() {
     button.classList.toggle('is-ready', Boolean(input.value.trim()) && !pending);
@@ -187,47 +212,69 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   input.addEventListener('input', syncSendState);
   syncSendState();
 
-  let alreadyIntroduced = false;
+  let guideSeen = false;
   try {
-    alreadyIntroduced = sessionStorage.getItem('portfolio-assistant-intro') === 'seen';
+    guideSeen = sessionStorage.getItem('portfolio-guide-seen') === '1';
   } catch {
-    // Optional sessionStorage.
+    guideSeen = false;
   }
 
-  function hideHint() {
-    if (hint) hint.hidden = true;
-    assistant.classList.remove('assistant-intro');
+  function dismissGuide(remember = true) {
+    if (!guideCard) return;
+    guideCard.classList.remove('is-visible');
+    setTimeout(() => { if (!guideCard.classList.contains('is-visible')) guideCard.hidden = true; }, 220);
+    if (remember) {
+      guideSeen = true;
+      try { sessionStorage.setItem('portfolio-guide-seen', '1'); } catch {}
+    }
   }
 
-  if (hint && !alreadyIntroduced) {
+  if (guideCard && !guideSeen && !isTouchDevice) {
     setTimeout(() => {
-      if (alreadyIntroduced || !panel.hidden) return;
-      alreadyIntroduced = true;
-      try {
-        sessionStorage.setItem('portfolio-assistant-intro', 'seen');
-      } catch {
-        // Optional sessionStorage.
-      }
-      hint.hidden = false;
-      assistant.classList.add('assistant-intro');
-      setTimeout(hideHint, 5200);
-    }, 1000);
+      if (guideSeen || !panel.hidden || window.scrollY > 360) return;
+      guideCard.hidden = false;
+      requestAnimationFrame(() => guideCard.classList.add('is-visible'));
+    }, 800);
   }
+
+  guideDismiss?.addEventListener('click', () => dismissGuide(true));
+  guideOpen?.addEventListener('click', () => {
+    dismissGuide(true);
+    openPanel(true);
+  });
+  assistant.querySelectorAll('.guide-jump-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.jump;
+      dismissGuide(true);
+      if (target && window.spotlightPortfolioTarget) window.spotlightPortfolioTarget(target);
+      else if (target) location.hash = target;
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    if (guideCard && !guideCard.hidden && window.scrollY > 420) dismissGuide(true);
+  }, { passive: true });
 
   function openPanel(open) {
     if (open) {
-      alreadyIntroduced = true;
-      try {
-        sessionStorage.setItem('portfolio-assistant-intro', 'seen');
-      } catch {
-        // Optional sessionStorage.
+      dismissGuide(true);
+      if (backdrop) {
+        backdrop.hidden = false;
+        requestAnimationFrame(() => backdrop.classList.add('is-open'));
       }
-      hideHint();
       panel.hidden = false;
       requestAnimationFrame(() => panel.classList.add('is-open'));
+      assistant.classList.add('is-drawer-open');
     } else {
       panel.classList.remove('is-open');
-      panel.hidden = true;
+      backdrop?.classList.remove('is-open');
+      assistant.classList.remove('is-drawer-open');
+      setTimeout(() => {
+        if (!panel.classList.contains('is-open')) {
+          panel.hidden = true;
+          if (backdrop) backdrop.hidden = true;
+        }
+      }, 220);
     }
     launcher.setAttribute('aria-expanded', String(open));
     if (open) {
@@ -318,7 +365,12 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
         const link = document.createElement('a');
         link.href = '#' + source.id;
         link.textContent = source.title + ' ↗';
-        link.addEventListener('click', () => openPanel(false));
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          openPanel(false);
+          if (window.spotlightPortfolioTarget) window.spotlightPortfolioTarget('#' + source.id);
+          else location.hash = source.id;
+        });
         citations.append(link);
       }
     }
@@ -452,14 +504,13 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   showTopic(topics[0]);
   launcher.addEventListener('click', () => openPanel(panel.hidden));
   closeButton.addEventListener('click', () => openPanel(false));
+  backdrop?.addEventListener('click', () => openPanel(false));
 
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !panel.hidden) openPanel(false);
-  });
-
-  document.addEventListener('pointerdown', event => {
-    if (!panel.hidden && !assistant.contains(event.target)) {
-      openPanel(false);
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      openPanel(panel.hidden);
     }
   });
 

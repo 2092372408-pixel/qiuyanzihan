@@ -1,8 +1,14 @@
 const isEnglish = document.documentElement.lang === 'en';
 const navigation = [...document.querySelectorAll('.section-nav a')];
 const sections = navigation.map(link => document.querySelector(link.hash)).filter(Boolean);
+const progressBar = document.querySelector('.scroll-progress');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function updateNavigation() {
+function updateScrollState() {
+  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+  if (progressBar) progressBar.style.transform = `scaleX(${ratio})`;
+
   let current = null;
   const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24;
   if (atBottom && sections.length) {
@@ -16,18 +22,50 @@ function updateNavigation() {
     if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   }
+
+  const activeId = current ? current.id : 'about';
+  document.documentElement.dataset.activeSection = activeId;
+  window.dispatchEvent(new CustomEvent('portfolio:section', { detail: activeId }));
 }
 
 let framePending = false;
 window.addEventListener('scroll', () => {
   if (framePending) return;
   framePending = true;
-  requestAnimationFrame(() => { updateNavigation(); framePending = false; });
+  requestAnimationFrame(() => { updateScrollState(); framePending = false; });
 }, { passive: true });
-updateNavigation();
+window.addEventListener('resize', updateScrollState, { passive: true });
+updateScrollState();
 
-const directionLines = [...document.querySelectorAll('.direction-line')];
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Gentle scroll-reveal choreography
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  const revealTargets = document.querySelectorAll('main > section:not(#about), .project, .honor');
+  const revealObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  for (const el of revealTargets) {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92) continue;
+    el.classList.add('reveal-ready');
+    revealObserver.observe(el);
+  }
+}
+
+window.spotlightPortfolioTarget = function spotlightPortfolioTarget(selector) {
+  const target = typeof selector === 'string' ? document.querySelector(selector) : selector;
+  if (!target) return;
+  target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+  target.classList.remove('is-spotlight');
+  void target.offsetWidth;
+  target.classList.add('is-spotlight');
+  setTimeout(() => target.classList.remove('is-spotlight'), 1800);
+};
+
 const accuracyChart = document.querySelector('.accuracy-chart');
 if (accuracyChart && !reducedMotion) {
   const chartObserver = new IntersectionObserver(([entry]) => {
@@ -36,30 +74,6 @@ if (accuracyChart && !reducedMotion) {
     chartObserver.disconnect();
   }, { threshold: 0.35 });
   chartObserver.observe(accuracyChart);
-}
-
-let introSeen = true;
-try {
-  introSeen = localStorage.getItem('portfolio-direction-seen') === '1';
-  localStorage.setItem('portfolio-direction-seen', '1');
-} catch {
-  introSeen = true;
-}
-if (directionLines.length && !introSeen && !reducedMotion) {
-  const text = directionLines.map(line => [...line.textContent]);
-  directionLines.forEach(line => { line.textContent = ''; });
-  let lineIndex = 0;
-  let characterIndex = 0;
-  directionLines[0].classList.add('is-typing');
-  const timer = setInterval(() => {
-    directionLines[lineIndex].textContent += text[lineIndex][characterIndex++];
-    if (characterIndex < text[lineIndex].length) return;
-    directionLines[lineIndex].classList.remove('is-typing');
-    lineIndex++;
-    characterIndex = 0;
-    if (lineIndex === directionLines.length) clearInterval(timer);
-    else directionLines[lineIndex].classList.add('is-typing');
-  }, 90);
 }
 
 for (const demoImage of document.querySelectorAll('.demo-image')) {
@@ -163,7 +177,7 @@ document.querySelectorAll('.copy-trigger').forEach(trigger => {
   });
 });
 
-// Lightweight native <dialog> preview for honors certificates
+// Native <dialog> preview for honors certificates
 const certDialog = document.getElementById('cert-dialog');
 if (certDialog) {
   const certImg = document.getElementById('cert-dialog-img');
