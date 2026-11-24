@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680" role="img" aria-labelledby="title desc">
+  <title id="title">EduPilot System Architecture</title>
+  <desc id="desc">Browser connects via HTTP and SSE to LangGraph teaching orchestration. Five teaching roles route tasks and invoke textbook retrieval, Python judging, and external MCP tools backed by model APIs and SQLite learning state.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="m0 0 10 5-10 5" fill="#6c9e81"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; fill: #192c25; }
+    .title { font-size: 26px; font-weight: 600; }
+    .label { font-size: 18px; font-weight: 600; }
+    .body { font-size: 15px; fill: #52675d; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; fill: #087e55; }
+    .box { fill: #fff; stroke: #c7dccf; stroke-width: 1.5; }
+    .wire { fill: none; stroke: #6c9e81; stroke-width: 1.8; marker-end: url(#arrow); }
+  </style>
+  <rect width="1120" height="680" rx="8" fill="#f8fcf9"/>
+  <text class="title" x="40" y="51">EduPilot</text>
+  <text class="body" x="172" y="50">From interactive learning to verifiable teaching feedback</text>
+  <text class="mono" x="1080" y="50" text-anchor="end">v1.1.4</text>
+
+  <rect class="box" x="40" y="80" width="1040" height="82" rx="7"/>
+  <text class="label" x="64" y="112">Browser Learning Interface</text>
+  <text class="body" x="64" y="140">Textbook Upload  /  Tutoring Chat  /  Online Python Editor  /  Quizzes &amp; Progress Reports</text>
+  <text class="mono" x="1056" y="112" text-anchor="end">public/</text>
+
+  <path class="wire" d="M560 163V204"/>
+  <text class="mono" x="576" y="188">HTTP + SSE</text>
+
+  <rect x="40" y="207" width="1040" height="155" rx="7" fill="#e7f6ed" stroke="#99c5aa" stroke-width="1.5"/>
+  <text class="label" x="64" y="241">LangGraph Teaching Orchestration</text>
+  <text class="mono" x="1056" y="241" text-anchor="end">server/agent/ + graph/</text>
+  <text class="body" x="64" y="270">Rule-based Routing  →  Role Execution (ReAct)  →  Tool Calls &amp; Verified Feedback</text>
+  <rect x="64" y="290" width="650" height="43" rx="4" fill="#ffffff"/>
+  <text class="body" x="82" y="317">General  /  Coordinator  /  Preview  /  Study  /  Review</text>
+  <text class="body" x="744" y="309">Role Allowlist · Call Budget</text>
+  <text class="body" x="744" y="334">Learning State · Memory &amp; Context</text>
+
+  <path class="wire" d="M202 362V404"/>
+  <path class="wire" d="M560 362V404"/>
+  <path class="wire" d="M918 362V404"/>
+
+  <rect class="box" x="40" y="407" width="324" height="115" rx="7"/>
+  <text class="label" x="64" y="440">Textbook Retrieval (RAG)</text>
+  <text class="body" x="64" y="469">Parse / Chunk / BM25 / Vector / RRF</text>
+  <text class="mono" x="64" y="499">server/kb/</text>
+
+  <rect class="box" x="386" y="407" width="348" height="115" rx="7"/>
+  <text class="label" x="410" y="440">Online Coding &amp; Grading</text>
+  <text class="body" x="410" y="469">Python Execution / Test Cases / Verified Score</text>
+  <text class="mono" x="410" y="499">server/coding/</text>
+
+  <rect class="box" x="756" y="407" width="324" height="115" rx="7"/>
+  <text class="label" x="780" y="440">External MCP Tools</text>
+  <text class="body" x="780" y="469">Web Search / Page Reader / Tool Bridge</text>
+  <text class="mono" x="780" y="499">server/mcp/</text>
+
+  <path d="M40 549H1080" stroke="#c7dccf" stroke-dasharray="5 5"/>
+  <text class="body" x="40" y="576">Shared Infrastructure</text>
+  <text class="label" x="40" y="609">Model Interface</text>
+  <text class="body" x="40" y="637">OpenAI-compatible API / Offline Demo Engine</text>
+  <text class="label" x="557" y="609">Learning Data &amp; Long-Term Memory</text>
+  <text class="body" x="557" y="637">SQLite Sessions &amp; Memory / Textbook Index / Verified Progress</text>
+</svg>

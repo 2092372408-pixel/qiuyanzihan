@@ -1,17 +1,23 @@
+const isEnglish = document.documentElement.lang === 'en';
 const navigation = [...document.querySelectorAll('.section-nav a')];
-const sections = navigation.map(link => document.querySelector(link.hash));
+const sections = navigation.map(link => document.querySelector(link.hash)).filter(Boolean);
 
 function updateNavigation() {
-
   let current = null;
-  for (const section of sections) {
-    if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section;
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24;
+  if (atBottom && sections.length) {
+    current = sections[sections.length - 1];
+  } else {
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section;
+    }
   }
   for (const link of navigation) {
     if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   }
 }
+
 let framePending = false;
 window.addEventListener('scroll', () => {
   if (framePending) return;
@@ -31,11 +37,14 @@ if (accuracyChart && !reducedMotion) {
   }, { threshold: 0.35 });
   chartObserver.observe(accuracyChart);
 }
+
 let introSeen = true;
 try {
   introSeen = localStorage.getItem('portfolio-direction-seen') === '1';
   localStorage.setItem('portfolio-direction-seen', '1');
-} catch { introSeen = true; /* Keep the heading complete if storage is unavailable. */ }
+} catch {
+  introSeen = true;
+}
 if (directionLines.length && !introSeen && !reducedMotion) {
   const text = directionLines.map(line => [...line.textContent]);
   directionLines.forEach(line => { line.textContent = ''; });
@@ -65,7 +74,7 @@ for (const demoImage of document.querySelectorAll('.demo-image')) {
       playing = next;
       demoImage.src = playing ? demoImage.dataset.animation : poster;
     }
-    demoToggle.textContent = playbackEnabled ? '暂停演示' : '播放演示';
+    demoToggle.textContent = playbackEnabled ? (isEnglish ? 'Pause demo' : '暂停演示') : (isEnglish ? 'Play demo' : '播放演示');
     demoToggle.setAttribute('aria-pressed', String(playbackEnabled));
   }
   demoToggle.hidden = false;
@@ -112,8 +121,6 @@ if (demoTrack) {
   updateDemos();
 }
 
-
-
 const toast = document.getElementById('toast');
 let toastTimer = null;
 function showToast(message) {
@@ -127,11 +134,12 @@ function showToast(message) {
     toast.setAttribute('aria-hidden', 'true');
   }, 2400);
 }
+window.showPortfolioToast = showToast;
 
 document.querySelectorAll('.copy-trigger').forEach(trigger => {
   trigger.addEventListener('click', async (event) => {
     const text = trigger.dataset.copy;
-    const tip = trigger.dataset.tip || '内容';
+    const tip = trigger.dataset.tip || (isEnglish ? 'content' : '内容');
     if (!text) return;
     event.preventDefault();
     try {
@@ -148,10 +156,43 @@ document.querySelectorAll('.copy-trigger').forEach(trigger => {
         document.execCommand('copy');
         textarea.remove();
       }
-      showToast(`已复制${tip}到剪切板：${text}`);
+      showToast(isEnglish ? `Copied: ${text}` : `已复制${tip}到剪贴板：${text}`);
     } catch {
-      showToast(`已选择：${text}`);
+      showToast(isEnglish ? `Selected: ${text}` : `已选择：${text}`);
     }
   });
 });
 
+// Lightweight native <dialog> preview for honors certificates
+const certDialog = document.getElementById('cert-dialog');
+if (certDialog) {
+  const certImg = document.getElementById('cert-dialog-img');
+  const certCaption = document.getElementById('cert-dialog-caption');
+  const certRaw = document.getElementById('cert-dialog-raw');
+  const certClose = certDialog.querySelector('.cert-dialog-close');
+  let lastTrigger = null;
+
+  document.querySelectorAll('.certificate-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const fullSrc = trigger.dataset.full;
+      const caption = trigger.dataset.caption || '';
+      const thumbImg = trigger.querySelector('img');
+      if (!fullSrc) return;
+      lastTrigger = trigger;
+      certImg.src = fullSrc;
+      certImg.alt = thumbImg ? thumbImg.alt : caption;
+      certCaption.textContent = caption;
+      if (certRaw) certRaw.href = fullSrc;
+      certDialog.showModal();
+    });
+  });
+
+  certClose?.addEventListener('click', () => certDialog.close());
+  certDialog.addEventListener('click', (event) => {
+    if (event.target === certDialog) certDialog.close();
+  });
+  certDialog.addEventListener('close', () => {
+    certImg.removeAttribute('src');
+    lastTrigger?.focus({ preventScroll: true });
+  });
+}

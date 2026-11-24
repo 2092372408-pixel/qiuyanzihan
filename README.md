@@ -1,26 +1,23 @@
-# 丘严子涵 (Qiu Yanzihan) - Personal Academic Profile
+# 丘严子涵 (David Qiu) · Personal Portfolio
 
-Welcome to my personal academic and professional portfolio repository.
+Personal academic & engineering portfolio focused on AI Applications and Agent Engineering.
 
-## 🌐 Live Website
+## Live Website
 
-**Please visit my live interactive profile here:**  
-👉 **[https://2092372408-pixel.github.io/qiuyanzihan/](https://2092372408-pixel.github.io/qiuyanzihan/)**
+- Chinese (Default): **[https://qiuyanzihan.space/](https://qiuyanzihan.space/)**
+- English: **[https://qiuyanzihan.space/en.html](https://qiuyanzihan.space/en.html)**
 
-## 📖 About
+## Highlights
 
-This repository hosts the source code for my personal resume website. It highlights my academic journey, research experience in AI and renewable energy, professional internships, and honorable awards.
+- **EduPilot**: Teaching Agent platform built with LangGraph, ReAct, Tool Calling, MCP, Hybrid RAG (BM25 + Vector + RRF), and server-verified Python grading.
+- **Scientific Literature Extraction & VLM Fine-Tuning**: 7,000+ papers structured text pipeline + Qwen3-VL-8B fine-tuning (+30.5 percentage points on compound figure recognition).
+- **Interactive Site Assistant & Contact Form**: Lightweight bilingual portfolio guide backed by `/api/portfolio/*`.
 
-- **Focus**: AI applications, Agent engineering, programming education, and scientific knowledge extraction.
-- **Education**: 
-  - The Chinese University of Hong Kong, Shenzhen (MPhil in AI, 2026–2028 expected)
-  - Xiamen University (B.Eng in New Energy Science and Engineering)
-  - Shanghai Jiao Tong University (Exchange)
+## Tech Stack
 
-## 🛠 Tech Stack
-- Pure HTML5 / CSS3 / Vanilla JS
-- Responsive layout with selected projects, publication links, experience, and honors
-- High-resolution portrait and keyboard-accessible image viewer
+- Pure HTML5 / CSS3 / Vanilla JavaScript (zero runtime dependencies)
+- Self-hosted JetBrains Mono font & optimized WebP assets
+- Native `<dialog>` certificate viewer, accessible keyboard navigation, and bilingual `hreflang` SEO
 
 ---
-*© Designed and created by Qiu Yanzihan. All rights reserved.*
+*© 2026 David (Yanzihan) Qiu.*
