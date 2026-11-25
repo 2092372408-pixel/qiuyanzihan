@@ -419,19 +419,6 @@ footer { padding: 40px 0 32px; }
 #portfolio-assistant button { cursor: pointer; }
 #portfolio-assistant :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* Backdrop for Slide-Over Companion Drawer */
-.assistant-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 11;
-  background: rgba(19, 35, 28, 0.16);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  opacity: 0;
-  transition: opacity .2s ease;
-}
-.assistant-backdrop.is-open { opacity: 1; }
-
 /* Signature Sprout Launcher — Grounded in Right Margin */
 .assistant-launch {
   position: relative;
@@ -444,12 +431,7 @@ footer { padding: 40px 0 32px; }
   border: 0;
   border-radius: 50%;
   background: transparent;
-  transition: transform .22s cubic-bezier(.2, .8, .2, 1), opacity .18s ease;
-}
-#portfolio-assistant.is-drawer-open .assistant-launch {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.85);
+  transition: transform .22s cubic-bezier(.2, .8, .2, 1);
 }
 .assistant-launch:hover { transform: translateY(-3px); }
 .assistant-launch:active { transform: translateY(0) scale(0.96); }
@@ -587,26 +569,27 @@ footer { padding: 40px 0 32px; }
 }
 .guide-open-btn:hover { background: var(--accent); }
 
-/* Right-Side Architectural Slide-Over Drawer (Zero Content Collision) */
+/* Compact Fixed-Proportion Assistant Panel (No Background Blur, Never Stretches) */
 .assistant-panel {
   position: fixed;
-  top: 14px;
-  right: 14px;
-  bottom: 14px;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: calc(98px + env(safe-area-inset-bottom));
   z-index: 13;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  width: min(416px, calc(100vw - 28px));
-  height: auto;
+  width: min(392px, calc(100vw - 32px));
+  height: min(510px, calc(100dvh - 124px - env(safe-area-inset-bottom)));
+  max-height: 520px;
   overflow: hidden;
   padding: 0;
   border: 1px solid rgba(25, 44, 37, 0.11);
   border-radius: 16px;
   background: var(--assistant-surface);
-  box-shadow: 0 28px 72px -12px rgba(17, 36, 28, 0.22), 0 4px 16px -4px rgba(17, 36, 28, 0.08);
+  box-shadow: 0 20px 52px -12px rgba(17, 36, 28, 0.16), 0 4px 14px -4px rgba(17, 36, 28, 0.06);
   opacity: 0;
-  transform: translateX(26px);
-  transition: opacity .2s ease, transform .24s cubic-bezier(.22, 1, .36, 1);
+  transform: translateY(10px) scale(0.985);
+  transform-origin: bottom right;
+  transition: opacity .18s ease, transform .22s cubic-bezier(.22, 1, .36, 1);
 }
 .assistant-panel.is-open {
   opacity: 1;
@@ -1077,11 +1060,12 @@ footer { padding: 40px 0 32px; }
   .assistant-launch { width: 64px; height: 64px; }
   .assistant-context-tip, .assistant-guide-card { display: none; }
   .assistant-panel {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    bottom: calc(82px + env(safe-area-inset-bottom));
     width: auto;
+    height: min(490px, calc(100dvh - 104px - env(safe-area-inset-bottom)));
+    max-height: 500px;
   }
   .assistant-messages { padding: 16px 15px 14px; }
   .assistant-form input { font-size: 16px; }

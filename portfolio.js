@@ -161,7 +161,6 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   }
 
   const assistant = document.querySelector('#portfolio-assistant');
-  const backdrop = assistant.querySelector('.assistant-backdrop');
   const guideCard = assistant.querySelector('.assistant-guide-card');
   const guideDismiss = assistant.querySelector('.guide-card-dismiss');
   const guideOpen = assistant.querySelector('.guide-open-btn');
@@ -258,23 +257,15 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   function openPanel(open) {
     if (open) {
       dismissGuide(true);
-      if (backdrop) {
-        backdrop.hidden = false;
-        requestAnimationFrame(() => backdrop.classList.add('is-open'));
-      }
       panel.hidden = false;
       requestAnimationFrame(() => panel.classList.add('is-open'));
-      assistant.classList.add('is-drawer-open');
     } else {
       panel.classList.remove('is-open');
-      backdrop?.classList.remove('is-open');
-      assistant.classList.remove('is-drawer-open');
       setTimeout(() => {
         if (!panel.classList.contains('is-open')) {
           panel.hidden = true;
-          if (backdrop) backdrop.hidden = true;
         }
-      }, 220);
+      }, 200);
     }
     launcher.setAttribute('aria-expanded', String(open));
     if (open) {
@@ -504,7 +495,10 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
   showTopic(topics[0]);
   launcher.addEventListener('click', () => openPanel(panel.hidden));
   closeButton.addEventListener('click', () => openPanel(false));
-  backdrop?.addEventListener('click', () => openPanel(false));
+
+  document.addEventListener('pointerdown', event => {
+    if (!panel.hidden && !assistant.contains(event.target)) openPanel(false);
+  });
 
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !panel.hidden) openPanel(false);
