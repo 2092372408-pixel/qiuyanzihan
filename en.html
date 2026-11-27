@@ -26,9 +26,9 @@
   <link rel="alternate" hreflang="x-default" href="https://qiuyanzihan.space/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261127-5">
-  <script src="script.js?v=20261127-5" defer></script>
-  <script src="portfolio.js?v=20261127-5" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261127-6">
+  <script src="script.js?v=20261127-6" defer></script>
+  <script src="portfolio.js?v=20261127-6" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,7 +86,6 @@
         <a href="#contact">Contact</a>
       </nav>
       <a class="language-link" href="./" lang="zh-CN" hreflang="zh-CN" aria-label="切换到简体中文">中文</a>
-      <span class="scroll-progress" aria-hidden="true"></span>
     </header>
 
     <main id="main">
@@ -115,9 +114,9 @@
       <section id="education" class="resume-section" aria-labelledby="education-heading">
         <div class="section-heading"><p class="eyebrow">01 · Academic</p><h2 id="education-heading">Education</h2></div>
         <div class="timeline">
-          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07 <span>expected</span></p><div><div class="education-header"><h3>The Chinese University of Hong Kong, Shenzhen</h3><img class="school-logo" src="images/school-cuhk.webp" width="56" height="42" alt="The Chinese University of Hong Kong crest" loading="lazy"></div><p class="timeline-role">AI MPhil · In progress</p><p>School of Artificial Intelligence. My interests include Agent engineering, tool calling, retrieval, and long-term memory.</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2026.09 — 2028.07</p><div><div class="education-header"><h3>The Chinese University of Hong Kong, Shenzhen</h3><img class="school-logo" src="images/school-cuhk.webp" width="56" height="42" alt="The Chinese University of Hong Kong crest" loading="lazy"></div><p class="timeline-role">AI MPhil · In progress</p><p>School of Artificial Intelligence. My interests include Agent engineering, tool calling, retrieval, and long-term memory.</p></div></article>
           <article class="timeline-item"><p class="timeline-date">2026.03 — 2026.06</p><div><div class="education-header"><h3>Shanghai Jiao Tong University</h3><img class="school-logo" src="images/school-sjtu.webp" width="56" height="42" alt="Shanghai Jiao Tong University crest" loading="lazy"></div><p class="timeline-role">Net-zero carbon fuels exchange · Low Carbon-UK College</p><p>Led a team that won Best Group Presentation with Distinction.</p></div></article>
-          <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><div class="education-header"><h3>Xiamen University</h3><img class="school-logo" src="images/school-xmu.webp" width="56" height="42" alt="Xiamen University crest" loading="lazy"></div><p class="timeline-role">BEng (Honours) in New Energy Science and Engineering</p><p>School of Energy and Chemical Engineering, Malaysia campus · <strong>CGPA 3.53 / 4.00</strong></p><p>A grades in courses including Materials Science, Calculus, and AI and Simulation. Academic-year third-class scholarship, Dean’s List and Merit Final Year Project awards.</p></div></article>
+          <article class="timeline-item"><p class="timeline-date">2022.09 — 2026.07</p><div><div class="education-header"><h3>Xiamen University</h3><img class="school-logo" src="images/school-xmu.webp" width="56" height="42" alt="Xiamen University crest" loading="lazy"></div><p class="timeline-role">BEng (Honours) in New Energy Science and Engineering</p><p>School of Energy and Chemical Engineering, Malaysia campus · <strong>CGPA 3.53 / 4.00</strong></p><p>Minor coursework in Computer Science (Backend Development); A grades in Materials Science, Calculus, and AI and Simulation. Academic-year third-class scholarship, Dean’s List, and Merit Final Year Project awards.</p></div></article>
         </div>
       </section>
 
@@ -256,22 +255,27 @@
         <div class="contact-overview">
           <p class="eyebrow">07 · Contact</p>
           <h2 id="contact-title">Get in touch</h2>
-          <p>For AI projects, research, internships, or collaborations, email me or leave a message here.</p>
-          <address aria-label="Contact details">
-            <a class="contact-email-link" href="mailto:yanzihanqiu@link.cuhk.edu.cn"><svg class="icon small" aria-hidden="true"><use href="#icon-mail"/></svg>yanzihanqiu@link.cuhk.edu.cn</a>
-            <button type="button" class="text-link copy-trigger contact-copy-btn" data-copy="yanzihanqiu@link.cuhk.edu.cn" data-tip="Email"><svg class="icon small" aria-hidden="true"><use href="#icon-copy"/></svg><span>Copy email address</span></button>
-            <a class="contact-github-link" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer"><svg class="icon small" aria-hidden="true"><use href="#icon-github"/></svg>github.com/2092372408-pixel</a>
+          <p>Open to AI application &amp; Agent internships, research, and collaborations.</p>
+          <address class="contact-channels" aria-label="Contact details">
+            <div class="contact-channel-row">
+              <span class="channel-label">Email</span>
+              <a class="contact-channel-value" href="mailto:yanzihanqiu@link.cuhk.edu.cn">yanzihanqiu@link.cuhk.edu.cn</a>
+              <button type="button" class="copy-trigger contact-inline-copy" data-copy="yanzihanqiu@link.cuhk.edu.cn" data-tip="Email" title="Copy email address">Copy</button>
+            </div>
+            <div class="contact-channel-row">
+              <span class="channel-label">GitHub</span>
+              <a class="contact-channel-value" href="https://github.com/2092372408-pixel" target="_blank" rel="noopener noreferrer">2092372408-pixel <svg class="icon small" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            </div>
           </address>
         </div>
         <form class="contact-form" action="/api/portfolio/contact" method="post" hidden aria-describedby="contact-privacy">
-          <h3>Send a message</h3>
           <div class="contact-fields">
-            <label>Name (optional)<input name="name" autocomplete="name" maxlength="60"></label>
-            <label>Your email, WeChat, or phone<input name="contact" required maxlength="160"></label>
+            <label><span class="field-name">Name <em>Optional</em></span><input name="name" autocomplete="name" maxlength="60" placeholder="Your name"></label>
+            <label><span class="field-name">Contact</span><input name="contact" required maxlength="160" placeholder="Email or WeChat"></label>
           </div>
-          <label>Message<textarea name="message" required maxlength="600" rows="4"></textarea></label>
+          <label><span class="field-name">Message</span><textarea name="message" required maxlength="600" rows="3" placeholder="Tell me about the role, project, or idea…"></textarea></label>
           <input type="text" name="website" hidden autocomplete="off" tabindex="-1" aria-hidden="true">
-          <div class="contact-actions"><button type="submit">Send message</button><p id="contact-privacy">Only the site owner can view your contact details and message.</p></div>
+          <div class="contact-actions"><button type="submit">Send message</button><p id="contact-privacy">Visible only to David.</p></div>
           <p class="contact-status" role="status" hidden></p>
         </form>
       </section>

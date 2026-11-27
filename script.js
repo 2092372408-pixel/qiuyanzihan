@@ -1,14 +1,9 @@
 const isEnglish = document.documentElement.lang === 'en';
 const navigation = [...document.querySelectorAll('.section-nav a')];
 const sections = navigation.map(link => document.querySelector(link.hash)).filter(Boolean);
-const progressBar = document.querySelector('.scroll-progress');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function updateScrollState() {
-  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-  const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-  if (progressBar) progressBar.style.transform = `scaleX(${ratio})`;
-
   let current = null;
   const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 24;
   if (atBottom && sections.length) {

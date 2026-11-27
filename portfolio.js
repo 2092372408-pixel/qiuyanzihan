@@ -72,8 +72,8 @@ const topics = [
         source: ['education', 'experience'],
         question: ['他现在在读什么，想找哪类实习？', 'What is David studying and what roles is he seeking?'],
         answer: [
-          'David 目前在**香港中文大学（深圳）**读人工智能研究型硕士（MPhil，预计 2028 年 7 月毕业），本科毕业于厦门大学。\n\n他现在正在找 **AI 应用开发 / Agent 研发实习**，平时最关注怎么把 Agent 做得「可控、可验证」——比如工作流编排、工具边界、`MCP`、`RAG` 和长期记忆。具体到岗时间和可实习时长，直接发邮件或留言问他本人最准。',
-          'David is an **AI MPhil** student at **CUHK-Shenzhen** (expected July 2028), after completing his undergrad at Xiamen University.\n\nHe’s currently looking for **AI Application or Agent Engineering internships**, focusing on reliable agent workflows, tool boundaries, `MCP`, `RAG`, and long-term memory. Feel free to email or leave him a note for exact start dates and availability.'
+          'David 目前在**香港中文大学（深圳）**读人工智能研究型硕士（MPhil，2026.09 — 2028.07），本科毕业于厦门大学，期间辅修了**计算机（后端）**相关课程。\n\n他现在正在找 **AI 应用开发 / Agent 研发实习**，平时最关注怎么把 Agent 做得「可控、可验证」——比如工作流编排、工具边界、`MCP`、`RAG` 和长期记忆。具体到岗时间和可实习时长，直接发邮件或留言问他本人最准。',
+          'David is an **AI MPhil** student at **CUHK-Shenzhen** (2026.09 — 2028.07), after completing his undergrad at Xiamen University with **minor coursework in Computer Science (Backend Development)**.\n\nHe’s currently looking for **AI Application or Agent Engineering internships**, focusing on reliable agent workflows, tool boundaries, `MCP`, `RAG`, and long-term memory. Feel free to email or leave him a note for exact start dates and availability.'
         ],
         followups: [
           ['最能体现 AI Agent 开发能力的经历是什么？', 'What best demonstrates David’s Agent engineering skills?'],
@@ -251,34 +251,71 @@ function matchConversationalIntent(rawQuestion) {
 }
 
 /**
- * Suggests contextual follow-up chips based on cited sections or conversation topic.
+ * Dynamically generates contextual drill-down follow-up questions based on
+ * the visitor's actual question, the answer content, cited sections, and
+ * previously asked turns (never repeating already-asked or fixed boilerplate).
  */
-function inferFollowups(sources, currentQuestion) {
-  const ids = new Set((sources || []).map(s => s.id));
-  const pool = [];
-  if (ids.has('edupilot')) {
-    pool.push(
-      ['32 → 12 具体测的是哪项指标？', 'What exactly does the 32-to-12 result measure?'],
-      ['文献抽取项目中，他负责什么？', 'What did he own in the literature extraction project?']
-    );
-  } else if (ids.has('literature') || ids.has('publication')) {
-    pool.push(
-      ['他以第一作者发表的研究是什么？', 'What is his first-author research about?'],
-      ['最能体现 AI Agent 开发能力的经历是什么？', 'What best demonstrates David’s Agent engineering skills?']
-    );
-  } else if (ids.has('experience')) {
-    pool.push(
-      ['在美的做的 AI 自动化有什么结果？', 'What changed after his AI automation project at Midea?'],
-      ['怎么联系 David？', 'How can I contact David?']
-    );
-  } else {
-    pool.push(
-      ['最能体现 AI Agent 开发能力的经历是什么？', 'What best demonstrates David’s Agent engineering skills?'],
-      ['怎么联系 David？', 'How can I contact David?']
-    );
-  }
+function buildDynamicFollowups(question, answer, sources, turns) {
   const langIdx = Number(english);
-  return pool.filter(pair => pair[langIdx] !== currentQuestion).slice(0, 2);
+  const combined = `${question || ''} ${answer || ''}`.toLowerCase();
+  const ids = new Set((sources || []).map(s => s.id));
+  const asked = new Set((turns || []).map(t => t.question.trim().toLowerCase()));
+  if (question) asked.add(question.trim().toLowerCase());
+
+  const candidates = [];
+  const push = (zh, en, coveredRegex) => {
+    const text = langIdx ? en : zh;
+    if (asked.has(text.toLowerCase())) return;
+    if (coveredRegex && coveredRegex.test(question || '')) return;
+    candidates.push(text);
+  };
+
+  // Topic-specific deep drill-down follow-ups
+  if (/edupilot|langgraph|mcp|判题|教学|agent|记忆|32/.test(combined) || ids.has('edupilot')) {
+    push('EduPilot 的 MCP 工具边界和安全限制怎么做的？', 'How does EduPilot enforce MCP tool boundaries?', /mcp|工具边界|白名单/i);
+    push('SSE 断连或中途取消时，状态和判分怎么处理？', 'How does it handle SSE disconnects and state recovery?', /断连|取消|状态恢复/i);
+    push('记忆维护调用从 32 降到 12 具体是怎么优化的？', 'How were memory maintenance calls cut from 32 to 12?', /32|12|62\.5/i);
+    push('教材检索里 BM25 + 向量 + RRF 具体怎么配合？', 'How do BM25, vector search, and RRF work together?', /bm25|rrf|检索/i);
+  }
+
+  if (/文献|qwen3-vl|微调|组合图|正极|7,000|7000|87\.2|56\.7/.test(combined) || ids.has('literature')) {
+    push('组合图拆分和 PDF 区域补图具体怎么做？', 'How did compound-figure splitting and PDF recovery work?', /组合图|裁图|补图/i);
+    push('7,000+ 篇文献怎么防止样本混淆和幻觉？', 'How do you prevent sample mix-ups across 7,000+ papers?', /样本|注册表|混淆|溯源/i);
+    push('文献筛选模型是怎么评估误排风险和 API 成本的？', 'How was the screening model evaluated for cost and recall?', /误排|筛选|费用|成本/i);
+  }
+
+  if (/论文|综述|transformer|电池|iop|164|nasa|calce/.test(combined) || ids.has('publication')) {
+    push('这篇综述在跨工况泛化和部署约束上有哪些结论？', 'What were the key findings on generalization and deployment?', /泛化|部署/i);
+    push('NASA 和 CALCE 对照实验里 Transformer 对比 CNN 结果如何？', 'How did Transformers compare against CNNs on NASA/CALCE?', /nasa|calce|cnn/i);
+  }
+
+  if (/美的|冠宇|midea|cosmx|工单|comsol|实习|热仿真/.test(combined) || ids.has('experience')) {
+    push('美的这套 20 分钟压到 4 分钟的 AI 流程怎么落地的？', 'How was the Midea 20-to-4 minute AI workflow designed?', /20|4 分钟|工单|节点/i);
+    push('在冠宇做热仿真对照实验，误差怎么控在 ±15% 以内？', 'How was thermal model error kept within ±15% at COSMX?', /冠宇|cosmx|15%|comsol/i);
+    push('结合这些经历，他最适合哪类 AI / Agent 岗位？', 'What AI or Agent roles best fit his background?', /岗位|适合|方向/i);
+  }
+
+  if (/港中深|厦门|交大|教育|辅修|后端|本科|硕士|mphil|coding|codex|claude|antigravity/.test(combined) || ids.has('education')) {
+    push('本科辅修计算机后端课程，在他哪些项目里体现最明显？', 'Where does his CS backend coursework show up most clearly?', /辅修|后端/i);
+    push('展开讲讲他在 EduPilot 里的全栈和 Agent 架构设计', 'Walk me through his full-stack & Agent architecture in EduPilot', /全栈|架构/i);
+    push('他平时常用哪些 AI Coding 工具和工程技术栈？', 'What AI coding tools and engineering stack does he use?', /coding|codex|技术栈/i);
+  }
+
+  if (/联系|邮箱|留言|微信|到岗/.test(combined) || ids.has('contact')) {
+    push('帮我 30 秒总结一下 David 最核心的亮点', 'Give me a 30-second summary of David’s top highlights', /总结|亮点/i);
+    push('展开讲讲他最核心的 Agent 代表作 EduPilot', 'Tell me more about his flagship agent project EduPilot', /edupilot/i);
+  }
+
+  // Fallback exploration tailored to topics not yet covered in memoryTurns
+  if (candidates.length < 2) {
+    const explored = (turns || []).map(t => `${t.question} ${t.answer}`).join(' ').toLowerCase();
+    if (!/edupilot/.test(explored)) push('展开讲讲 EduPilot 的核心工程设计', 'Walk through EduPilot’s core engineering design');
+    if (!/qwen3-vl|文献/.test(explored)) push('聊聊他在科研文献与视觉模型微调上的成果', 'Tell me about his literature extraction & VLM fine-tuning');
+    if (!/美的|midea/.test(explored)) push('他在美的实习做的 AI 自动化有什么实际产出？', 'What impact did his AI automation work at Midea have?');
+    push('怎么联系 David 进一步交流？', 'How can I get in touch with David?');
+  }
+
+  return candidates.slice(0, 2);
 }
 
 /**
@@ -724,11 +761,12 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
             accumulated += piece;
             scheduleRender();
           }
-          if (parsed.done || parsed.mode || Array.isArray(parsed.sources) || (typeof parsed.answer === 'string' && !piece)) {
+          if (parsed.done || parsed.mode || Array.isArray(parsed.sources) || Array.isArray(parsed.followups) || (typeof parsed.answer === 'string' && !piece)) {
             finalMeta = {
               mode: parsed.mode || finalMeta?.mode || 'model',
               answer: typeof parsed.answer === 'string' && parsed.answer ? parsed.answer : accumulated,
-              sources: Array.isArray(parsed.sources) ? parsed.sources : (finalMeta?.sources || [])
+              sources: Array.isArray(parsed.sources) ? parsed.sources : (finalMeta?.sources || []),
+              followups: Array.isArray(parsed.followups) ? parsed.followups : (finalMeta?.followups || null)
             };
           }
         }
@@ -741,7 +779,8 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
     return {
       mode: finalMeta?.mode || 'model',
       answer: (finalMeta?.answer || accumulated).trim(),
-      sources: finalMeta?.sources || []
+      sources: finalMeta?.sources || [],
+      followups: finalMeta?.followups || null
     };
   }
 
@@ -802,8 +841,10 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
 
     if (showFollowups) {
       clearActiveFollowups();
-      const followups = result.followups || inferFollowups(validSources, question);
-      renderFollowups(body, followups);
+      const dynamicList = Array.isArray(result.followups) && result.followups.length
+        ? result.followups
+        : buildDynamicFollowups(question, rawAnswer, validSources, memoryTurns);
+      renderFollowups(body, dynamicList);
     }
   }
 
@@ -832,8 +873,7 @@ if (location.hostname === 'qiuyanzihan.space' || location.hostname === 'localhos
         result = entry ? {
           mode: 'saved',
           answer: entry.answer[language],
-          sources: entry.source.map(id => ({ id, title: sectionTitles[id][language] })),
-          followups: entry.followups
+          sources: entry.source.map(id => ({ id, title: sectionTitles[id][language] }))
         } : localIntent;
         row.classList.remove('is-pending');
         await animateTextStream(body, result.answer, controller.signal);
