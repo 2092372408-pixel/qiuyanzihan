@@ -819,6 +819,20 @@ footer { padding: 40px 0 32px; }
   background: #f1f5f3;
   color: var(--assistant-ink);
 }
+.streaming-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -2px;
+  border-radius: 1px;
+  background: var(--accent);
+  animation: cursor-blink .85s ease-in-out infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .2; }
+}
 
 .guide-thinking {
   display: inline-flex;
@@ -886,6 +900,31 @@ footer { padding: 40px 0 32px; }
 }
 .assistant-copy:hover { background: var(--assistant-subtle); color: var(--assistant-ink); }
 .assistant-copy.is-copied { color: var(--accent); }
+
+/* Contextual Follow-Up Chips (Latest Reply Only) */
+.assistant-followups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.followup-chip {
+  padding: 5px 10px;
+  border: 1px solid rgba(25, 44, 37, 0.11);
+  border-radius: 999px;
+  background: #f8fbf9;
+  color: var(--assistant-body);
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1.35;
+  text-align: left;
+  transition: background .14s ease, border-color .14s ease, color .14s ease;
+}
+.followup-chip:hover {
+  background: #edf6f0;
+  border-color: rgba(8, 126, 85, 0.35);
+  color: var(--accent-strong);
+}
 
 /* Clean Floating Composer */
 .assistant-compose {
